@@ -1,58 +1,27 @@
 import { useScrollAnimationMultiple } from '../hooks/useScrollAnimation';
-
-const MILESTONES = [
-  {
-    year: '2008',
-    title: 'Pendirian Perseroan',
-    desc: 'PT Perta-Samtan Gas resmi didirikan pada 7 Mei 2008. Dimiliki 66% Pertamina Gas & 34% ST International untuk memproduksi LPG mendukung program konversi BBM pemerintah.',
-    done: true, icon: '🏗️',
-  },
-  {
-    year: '2013',
-    title: 'Fase Komersial',
-    desc: 'Kilang PT Perta-Samtan Gas memasuki fase komersial mulai 1 Mei 2013. Dimulainya produksi penuh LPG dan Kondensat dari kedua kilang terintegrasi.',
-    done: true, icon: '🚀',
-  },
-  {
-    year: '2018',
-    title: '1 Juta Ton LPG',
-    desc: 'Berhasil memproduksi 1 juta ton LPG sejak masa komersial hingga Oktober 2018 — tonggak bersejarah dalam perjalanan perusahaan.',
-    done: true, icon: '🏆',
-  },
-  {
-    year: '—',
-    title: 'Proper Hijau',
-    desc: 'Meraih penghargaan Proper Hijau dari Kementerian LHK RI atas komitmen pengelolaan lingkungan hidup yang unggul di seluruh area operasional.',
-    done: true, icon: '🌿',
-  },
-  {
-    year: '—',
-    title: 'Patra Nirbaya Karya Madya',
-    desc: 'Meraih Penghargaan Keselamatan Kerja kategori Jam Kerja Aman — bukti nyata implementasi budaya HSSE yang konsisten.',
-    done: true, icon: '🛡️',
-  },
-  {
-    year: '2026+',
-    title: 'Diversifikasi & Pertumbuhan',
-    desc: 'Eksplorasi peluang bisnis di seluruh Indonesia, penguatan kemitraan strategis dengan Pemerintah, dan pengembangan potensi bisnis yang lebih luas.',
-    done: false, icon: '🌐',
-  },
-];
+import { useLanguage } from '../context/LanguageContext';
+import { useContent } from '../context/ContentContext';
 
 export default function Roadmap() {
   const ref = useScrollAnimationMultiple();
+  const { t } = useLanguage();
+  const { content } = useContent();
+
+  // CMS milestones take priority; fall back to translations if not set
+  const MILESTONES = (content.milestones && content.milestones.length > 0)
+    ? content.milestones
+    : t('roadmap.milestones');
 
   return (
-    <section id="roadmap" className="py-24 lg:py-32 section-white" ref={ref}>
+    <section id="roadmap" className="py-12 lg:py-16 section-light" ref={ref}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="anim"><span className="section-label">Perjalanan Kami</span></div>
-          <h2 className="anim section-heading mb-4" style={{ transitionDelay: '80ms' }}>Pencapaian Perseroan</h2>
+        <div className="text-center mb-10">
+          <div className="anim"><span className="section-label">{t('roadmap.eyebrow')}</span></div>
+          <h2 className="anim section-heading mb-4" style={{ transitionDelay: '80ms' }}>{t('roadmap.heading')}</h2>
           <p className="anim section-sub mx-auto text-center" style={{ transitionDelay: '140ms' }}>
-            Tonggak penting dalam perjalanan PT Perta-Samtan Gas sejak pendirian hingga menjadi
-            perusahaan LPG terkemuka di Indonesia.
+            {t('roadmap.sub')}
           </p>
         </div>
 
@@ -66,10 +35,8 @@ export default function Roadmap() {
               const isRight = i % 2 === 0;
               return (
                 <div
-                  key={`${m.year}-${m.title}`}
-                  className={`anim relative flex gap-6 ${
-                    'lg:items-center lg:gap-0'
-                  } ${isRight ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
+                  key={i}
+                  className={`anim relative flex gap-6 lg:items-center lg:gap-0 ${isRight ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
                   style={{ transitionDelay: `${i * 90}ms` }}
                 >
                   {/* Card */}
@@ -85,7 +52,7 @@ export default function Roadmap() {
                         <span className={`ml-auto text-[10px] font-bold uppercase tracking-wider ${
                           m.done ? 'text-green-600' : 'text-gray-400'
                         }`}>
-                          {m.done ? '✓ Tercapai' : '→ Rencana'}
+                          {m.done ? t('roadmap.achieved') : t('roadmap.planned')}
                         </span>
                       </div>
                       <h3 className="font-bold text-psg-navy text-base mb-2">{m.title}</h3>
@@ -93,8 +60,8 @@ export default function Roadmap() {
                     </div>
                   </div>
 
-                  {/* Node (desktop center) */}
-                  <div className={`absolute left-0 lg:left-1/2 lg:-translate-x-1/2 flex-shrink-0 flex flex-col items-center`}>
+                  {/* Node */}
+                  <div className="absolute left-0 lg:left-1/2 lg:-translate-x-1/2 flex-shrink-0 flex flex-col items-center">
                     <div className={`w-14 h-14 rounded-full border-4 flex items-center justify-center font-extrabold text-xs shadow-md z-10 ${
                       m.done
                         ? 'bg-psg-blue border-white text-white shadow-psg-blue/30'
@@ -116,17 +83,14 @@ export default function Roadmap() {
         <div className="anim mt-16 bg-psg-navy rounded-2xl p-8 lg:p-10 flex flex-col sm:flex-row items-center gap-6" style={{ transitionDelay: '580ms' }}>
           <div className="w-16 h-16 bg-psg-red/20 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">🏆</div>
           <div className="flex-1 text-center sm:text-left">
-            <h3 className="text-white font-extrabold text-xl mb-1">1 Juta Ton LPG Diproduksi</h3>
-            <p className="text-blue-200 text-sm leading-relaxed">
-              Sejak fase komersial 1 Mei 2013 hingga Oktober 2018 — pencapaian bersejarah yang membuktikan
-              kapabilitas operasional PT Perta-Samtan Gas dalam mendukung ketahanan energi nasional.
-            </p>
+            <h3 className="text-white font-extrabold text-xl mb-1">{t('roadmap.ctaHeading')}</h3>
+            <p className="text-blue-200 text-sm leading-relaxed">{t('roadmap.ctaSub')}</p>
           </div>
           <button
             onClick={() => document.querySelector('#kontak')?.scrollIntoView({ behavior: 'smooth' })}
             className="btn-primary flex-shrink-0"
           >
-            Hubungi Kami
+            {t('roadmap.ctaBtn')}
           </button>
         </div>
 

@@ -48,7 +48,12 @@ export default function EditSections() {
             <Toggle
               key={key}
               label={sec.label}
-              desc={`ID: #${key === 'whyus' ? 'kenapa' : key === 'clients' ? 'pelanggan' : key}`}
+              desc={`ID: #${
+                key === 'whyus' ? 'kenapa'
+                  : key === 'clients' ? 'pelanggan'
+                    : key === 'contribute' ? 'contribute'
+                      : key
+              }`}
               checked={sec.visible}
               onChange={() => toggle(key)}
             />

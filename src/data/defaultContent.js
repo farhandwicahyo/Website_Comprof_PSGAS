@@ -16,11 +16,11 @@ export const defaultContent = {
     ctaLink: '#kontak',
     menuItems: [
       { label: 'Beranda', link: '#beranda' },
-      { label: 'Tentang', link: '#tentang' },
+      { label: 'Tentang Perusahaan', link: '#tentang' },
       { label: 'Proses', link: '#proses' },
       { label: 'Fasilitas', link: '#fasilitas' },
       { label: 'Produk', link: '#produk' },
-      { label: 'Berita', link: '#berita' },
+      { label: 'Kontribusi', link: '#contribute' },
     ],
   },
 
@@ -32,7 +32,8 @@ export const defaultContent = {
     products: { visible: true, label: 'Produk' },
     whyus: { visible: true, label: 'Nilai & HSSE' },
     roadmap: { visible: true, label: 'Roadmap / Pencapaian' },
-    news: { visible: true, label: 'Berita' },
+    contribute: { visible: true, label: 'Kontribusi Kami' },
+    news: { visible: false, label: 'Berita' },
     clients: { visible: true, label: 'Mitra & Penghargaan' },
   },
 
@@ -179,11 +180,6 @@ export const defaultContent = {
       desc: 'Kondensat (Pentane+) sebagai produk sampingan fraksinasi 2.200 bbl/hari, dikembalikan ke PT Pertamina Hulu Rokan.',
       stat: '2.200 bbl/Hari', color: 'psg-blue',
     },
-    {
-      no: '03', icon: '💨', title: 'Lean Gas', sub: 'Methane + Ethane',
-      desc: 'Lean gas residual (Methane dan Ethane) dikembalikan kepada PT Pertamina Hulu Rokan sesuai perjanjian kerjasama operasional.',
-      stat: 'Residual Gas', color: '[#6b7a19]',
-    },
   ],
 
   news: [
@@ -288,6 +284,94 @@ Penghargaan Patra Nirbaya merupakan pengakuan tertinggi di sektor energi dan per
       content: 'Konten artikel draft belum diisi.',
     },
   ],
+
+  /* ── Mitra / Partners ── */
+  partners: [
+    { name: 'Pertamina Gas Negara',  logo: '/partners/pertamina_gas_negara.PNG' },
+    { name: 'Pertamina Patra Niaga', logo: '/partners/pertamina_patra_niaga.PNG' },
+    { name: 'Pertagas',              logo: '/partners/pertagas.png' },
+    { name: 'ST International',      logo: '/partners/st_internasional.png' },
+    { name: 'Pertamina RU III',      logo: '/partners/pertamina_ru_iii.png' },
+    { name: 'Kementerian ESDM',      logo: '/partners/kementrian_esdm.jpeg' },
+  ],
+
+  /* ── Penghargaan / Awards ── */
+  awards: [
+    {
+      title: 'Proper Hijau',
+      org: 'Kementerian LHK RI',
+      desc: 'Komitmen pengelolaan lingkungan yang unggul dan berkelanjutan di seluruh area operasional.',
+      img: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=840&h=560&fit=crop&q=80',
+    },
+    {
+      title: 'Patra Nirbaya Karya Madya',
+      org: 'Kementerian ESDM RI',
+      desc: 'Penghargaan keselamatan kerja atas kinerja jam kerja aman yang konsisten.',
+      img: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=840&h=560&fit=crop&q=80',
+    },
+    {
+      title: 'SMK3 Gold',
+      org: 'Kementerian Ketenagakerjaan RI',
+      desc: 'Sertifikasi Sistem Manajemen K3 level Gold — standar keselamatan kerja tertinggi.',
+      img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=840&h=560&fit=crop&q=80',
+    },
+    {
+      title: 'PROPER Biru',
+      org: 'Kementerian LHK RI',
+      desc: 'Penilaian kepatuhan lingkungan berkelanjutan yang diakui pemerintah.',
+      img: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=840&h=560&fit=crop&q=80',
+    },
+    {
+      title: 'Penghargaan Energi',
+      org: 'Kementerian ESDM RI',
+      desc: 'Pengakuan atas kontribusi nyata dalam ketahanan dan efisiensi energi nasional.',
+      img: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=840&h=560&fit=crop&q=80',
+    },
+  ],
+
+  /* ── Roadmap / Milestones ── */
+  milestones: [
+    { year: '2008',  icon: '🏗️', done: true,  title: 'Pendirian Perseroan',         desc: 'PT Perta-Samtan Gas resmi didirikan pada 7 Mei 2008. Dimiliki 66% Pertamina Gas & 34% ST International untuk memproduksi LPG mendukung program konversi BBM pemerintah.' },
+    { year: '2013',  icon: '🚀', done: true,  title: 'Fase Komersial',              desc: 'Kilang PT Perta-Samtan Gas memasuki fase komersial mulai 1 Mei 2013. Dimulainya produksi penuh LPG dan Kondensat dari kedua kilang terintegrasi.' },
+    { year: '2018',  icon: '🏆', done: true,  title: '1 Juta Ton LPG',              desc: 'Berhasil memproduksi 1 juta ton LPG sejak masa komersial hingga Oktober 2018 — tonggak bersejarah dalam perjalanan perusahaan.' },
+    { year: '—',     icon: '🌿', done: true,  title: 'Proper Hijau',                desc: 'Meraih penghargaan Proper Hijau dari Kementerian LHK RI atas komitmen pengelolaan lingkungan hidup yang unggul di seluruh area operasional.' },
+    { year: '—',     icon: '🛡️', done: true,  title: 'Patra Nirbaya Karya Madya',   desc: 'Meraih Penghargaan Keselamatan Kerja kategori Jam Kerja Aman — bukti nyata implementasi budaya HSSE yang konsisten.' },
+    { year: '2026+', icon: '🌐', done: false, title: 'Diversifikasi & Pertumbuhan', desc: 'Eksplorasi peluang bisnis di seluruh Indonesia, penguatan kemitraan strategis dengan Pemerintah, dan pengembangan potensi bisnis yang lebih luas.' },
+  ],
+
+  contribute: {
+    eyebrow: 'Kontribusi & Kegiatan',
+    heading: 'Kontribusi Kami',
+    subtitle:
+      'Dokumentasi kegiatan sosial, lingkungan, dan kontribusi PT Perta-Samtan Gas bagi masyarakat sekitar area operasional.',
+    photos: [
+      {
+        src: '/csr/CSR_MOTOR SAMPAH.png',
+        title: 'Program Motor Sampah',
+        caption: 'Dukungan pengelolaan sampah dan kebersihan lingkungan di sekitar area operasional.',
+      },
+      {
+        src: '/csr/CSR_PENCEGAHAN BANJIR.png',
+        title: 'Program Pencegahan Banjir',
+        caption: 'Kegiatan mitigasi banjir dan peningkatan ketahanan masyarakat terdampak.',
+      },
+      {
+        src: '/csr/CSR_RLTH.png',
+        title: 'Program RLTH',
+        caption: 'Kontribusi rumah layak huni bagi masyarakat di wilayah sekitar perusahaan.',
+      },
+      {
+        src: '/csr/CSR_SANTUNAN ANAK YATIM.png',
+        title: 'Santunan Anak Yatim',
+        caption: 'Penyaluran bantuan dan pendampingan bagi anak yatim piatu di sekitar operasi.',
+      },
+      {
+        src: '/csr/CSR_SANTUNAN ANAK YATIM2.png',
+        title: 'Santunan Anak Yatim',
+        caption: 'Kegiatan sosial berkelanjutan sebagai bentuk tanggung jawab perusahaan kepada masyarakat.',
+      },
+    ],
+  },
 
   contact: {
     phone1: '+62-711 5740701 s.d. 5740704',

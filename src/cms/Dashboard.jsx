@@ -8,13 +8,17 @@ const SECTIONS_SETTINGS = [
 ];
 
 const SECTIONS_CONTENT = [
-  { to: '/admin/hero', icon: '🖼️', label: 'Hero / Cover', desc: 'Judul utama, CTA dengan link, statistik' },
-  { to: '/admin/about', icon: '🏢', label: 'Tentang Perusahaan', desc: 'Profil, visi, misi, fakta kunci' },
-  { to: '/admin/process', icon: '⚗️', label: 'Proses Bisnis', desc: 'Langkah-langkah pengolahan gas' },
-  { to: '/admin/facilities', icon: '🏭', label: 'Fasilitas', desc: 'Kilang, pipa NGL, depot & jetty' },
-  { to: '/admin/products', icon: '📦', label: 'Produk', desc: 'LPG Mixed, Kondensat, Lean Gas' },
-  { to: '/admin/news', icon: '📰', label: 'Berita', desc: 'Artikel terbaru dan press release' },
-  { to: '/admin/contact', icon: '📞', label: 'Kontak & Footer', desc: 'Telepon, alamat, info kaki halaman' },
+  { to: '/admin/hero',       icon: '🖼️',  label: 'Hero / Cover',            desc: 'Judul utama, CTA dengan link, statistik' },
+  { to: '/admin/about',      icon: '🏢',  label: 'Tentang Perusahaan',       desc: 'Profil, visi, misi, tujuan perseroan' },
+  { to: '/admin/process',    icon: '⚗️',  label: 'Proses Bisnis',            desc: 'Langkah-langkah pengolahan gas' },
+  { to: '/admin/facilities', icon: '🏭',  label: 'Fasilitas',                desc: 'Kilang, pipa NGL, depot & jetty' },
+  { to: '/admin/products',   icon: '📦',  label: 'Produk',                   desc: 'LPG Mixed, Kondensat' },
+  { to: '/admin/partners',   icon: '🤝',  label: 'Ekosistem & Mitra',        desc: 'Logo mitra di marquee animasi' },
+  { to: '/admin/awards',     icon: '🏆',  label: 'Penghargaan & Pengakuan',  desc: 'Kartu penghargaan di carousel arc 3D' },
+  { to: '/admin/roadmap',    icon: '🗺️',  label: 'Perjalanan Kami',          desc: 'Timeline milestone pencapaian perusahaan' },
+  { to: '/admin/contribute', icon: '🤲',  label: 'Kontribusi & Kegiatan',    desc: 'Foto CSR/kegiatan sosial — carousel & galeri' },
+  { to: '/admin/news',       icon: '📰',  label: 'Berita',                   desc: 'Artikel terbaru dan press release' },
+  { to: '/admin/contact',    icon: '📞',  label: 'Kontak & Footer',          desc: 'Telepon, alamat, info kaki halaman' },
 ];
 
 function SectionCard({ to, icon, label, desc, badge, isVisible }) {
@@ -81,12 +85,14 @@ export default function Dashboard() {
       </div>
 
       {/* Stats strip */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-8">
         {[
-          { val: `${visibleCount}/${totalCount}`, label: 'Section Aktif', color: 'text-green-600 bg-green-50 border-green-100' },
-          { val: content.news?.length || 0, label: 'Artikel Berita', color: 'text-blue-600 bg-blue-50 border-blue-100' },
-          { val: content.facilities?.length || 0, label: 'Fasilitas', color: 'text-orange-600 bg-orange-50 border-orange-100' },
-          { val: content.products?.length || 0, label: 'Produk', color: 'text-purple-600 bg-purple-50 border-purple-100' },
+          { val: `${visibleCount}/${totalCount}`, label: 'Section Aktif',    color: 'text-green-600  bg-green-50  border-green-100'  },
+          { val: content.news?.length        || 0, label: 'Artikel Berita',  color: 'text-blue-600   bg-blue-50   border-blue-100'   },
+          { val: content.facilities?.length  || 0, label: 'Fasilitas',       color: 'text-orange-600 bg-orange-50 border-orange-100' },
+          { val: content.products?.length    || 0, label: 'Produk',          color: 'text-purple-600 bg-purple-50 border-purple-100' },
+          { val: content.partners?.length    || 0, label: 'Mitra',           color: 'text-teal-600   bg-teal-50   border-teal-100'   },
+          { val: content.awards?.length      || 0, label: 'Penghargaan',     color: 'text-yellow-600 bg-yellow-50 border-yellow-100' },
         ].map((s) => (
           <div key={s.label} className={`rounded-xl border p-4 ${s.color}`}>
             <div className="text-2xl font-extrabold">{s.val}</div>

@@ -8,16 +8,20 @@ const NAV = [
   { group: 'Pengaturan', items: [
     { to: '/admin/settings', icon: '⚙️', label: 'Pengaturan Global' },
     { to: '/admin/sections', icon: '👁️', label: 'Visibilitas Section' },
-    { to: '/admin/navbar', icon: '🗂️', label: 'Navbar & Menu' },
+    { to: '/admin/navbar',   icon: '🗂️', label: 'Navbar & Menu' },
   ]},
   { group: 'Konten', items: [
-    { to: '/admin/hero', icon: '🖼️', label: 'Hero / Cover' },
-    { to: '/admin/about', icon: '🏢', label: 'Tentang Perusahaan' },
-    { to: '/admin/process', icon: '⚙️', label: 'Proses Bisnis' },
+    { to: '/admin/hero',       icon: '🖼️', label: 'Hero / Cover' },
+    { to: '/admin/about',      icon: '🏢', label: 'Tentang Perusahaan' },
+    { to: '/admin/process',    icon: '⚗️', label: 'Proses Bisnis' },
     { to: '/admin/facilities', icon: '🏭', label: 'Fasilitas' },
-    { to: '/admin/products', icon: '📦', label: 'Produk' },
-    { to: '/admin/news', icon: '📰', label: 'Berita' },
-    { to: '/admin/contact', icon: '📞', label: 'Kontak & Footer' },
+    { to: '/admin/products',   icon: '📦', label: 'Produk' },
+    { to: '/admin/partners',   icon: '🤝', label: 'Ekosistem & Mitra' },
+    { to: '/admin/awards',     icon: '🏆', label: 'Penghargaan' },
+    { to: '/admin/roadmap',    icon: '🗺️', label: 'Perjalanan Kami' },
+    { to: '/admin/contribute', icon: '🤲', label: 'Kontribusi & Kegiatan' },
+    { to: '/admin/news',       icon: '📰', label: 'Berita' },
+    { to: '/admin/contact',    icon: '📞', label: 'Kontak & Footer' },
   ]},
 ];
 
@@ -49,16 +53,16 @@ export default function AdminLayout() {
           ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}
       >
         {/* Logo */}
-        <div className="flex items-center gap-3 px-6 py-5 border-b border-white/10">
-          <img src="/logo.png" alt="PSG" className="h-10 w-auto object-contain" />
-          <div>
-            <p className="text-xs font-bold leading-tight">PT Perta-Samtan Gas</p>
-            <p className="text-[10px] text-white/60 leading-tight">Admin CMS</p>
-          </div>
+        <div className="flex items-center gap-3 px-4 py-3 border-b border-white/10">
+          <img src="/logo.png" alt="PSG" className="h-8 w-auto object-contain" />
+          {/* <div>
+            <p className="text-[11px] font-bold leading-tight">PT Perta-Samtan Gas</p>
+            <p className="text-[9px] text-white/50 leading-tight">Admin CMS</p>
+          </div> */}
         </div>
 
         {/* Nav */}
-        <nav className="flex-1 px-3 py-4 overflow-y-auto space-y-1">
+        <nav className="flex-1 px-2 py-2 space-y-0.5">
           {NAV.map((item, idx) => {
             if (item.group === null) {
               return (
@@ -67,29 +71,29 @@ export default function AdminLayout() {
                   to={item.to}
                   onClick={() => setSidebarOpen(false)}
                   className={({ isActive }) =>
-                    `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150
+                    `flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-[13px] font-medium transition-all duration-150
                     ${isActive ? 'bg-[#0075BF] text-white shadow-inner' : 'text-white/70 hover:bg-white/10 hover:text-white'}`
                   }
                 >
-                  <span className="text-base">{item.icon}</span>
+                  <span className="text-sm">{item.icon}</span>
                   {item.label}
                 </NavLink>
               );
             }
             return (
               <div key={idx}>
-                <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/30 px-3 pt-4 pb-1.5">{item.group}</p>
+                <p className="text-[9px] font-bold uppercase tracking-[0.15em] text-white/30 px-3 pt-3 pb-1">{item.group}</p>
                 {item.items.map((sub) => (
                   <NavLink
                     key={sub.to}
                     to={sub.to}
                     onClick={() => setSidebarOpen(false)}
                     className={({ isActive }) =>
-                      `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150
+                      `flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-[13px] font-medium transition-all duration-150
                       ${isActive ? 'bg-[#0075BF] text-white shadow-inner' : 'text-white/70 hover:bg-white/10 hover:text-white'}`
                     }
                   >
-                    <span className="text-base">{sub.icon}</span>
+                    <span className="text-sm">{sub.icon}</span>
                     <span className="flex-1">{sub.label}</span>
                     {sub.to === '/admin/news' && draftCount > 0 && (
                       <span className="text-[10px] font-bold bg-amber-400 text-amber-900 px-1.5 py-0.5 rounded-full">{draftCount}</span>
@@ -102,20 +106,20 @@ export default function AdminLayout() {
         </nav>
 
         {/* Footer */}
-        <div className="px-3 py-4 border-t border-white/10 space-y-2">
+        <div className="px-2 py-2 border-t border-white/10 space-y-0.5">
           <a
             href="/"
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-white/70 hover:bg-white/10 hover:text-white transition"
+            className="flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-[13px] text-white/70 hover:bg-white/10 hover:text-white transition"
           >
-            <span className="text-base">🌐</span> Lihat Website
+            <span className="text-sm">🌐</span> Lihat Website
           </a>
           <button
             onClick={handleLogout}
-            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-red-300 hover:bg-red-900/30 hover:text-red-200 transition"
+            className="w-full flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-[13px] text-red-300 hover:bg-red-900/30 hover:text-red-200 transition"
           >
-            <span className="text-base">🚪</span> Keluar
+            <span className="text-sm">🚪</span> Keluar
           </button>
         </div>
       </aside>

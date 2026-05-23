@@ -88,3 +88,26 @@
 /* Image hover zoom */
 .img-zoom img { transition: transform .7s ease; }
 .img-zoom:hover img { transform: scale(1.04); }
+
+/* Partner marquee — plain CSS (avoids .anim transform conflict) */
+.partner-marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.partner-marquee__track {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  animation: partner-marquee-scroll 28s linear infinite;
+  will-change: transform;
+}
+@keyframes partner-marquee-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .partner-marquee__track {
+    animation: none;
+  }
+}

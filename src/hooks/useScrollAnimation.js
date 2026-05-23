@@ -15,7 +15,12 @@ export function useScrollAnimationMultiple() {
     const el = ref.current;
     if (!el || !observer) return;
     const items = el.querySelectorAll(SELECTOR);
-    items.forEach((item) => observer.observe(item));
+    items.forEach((item) => {
+      observer.observe(item);
+      // Already in viewport (e.g. after a language switch with stable keys) → show immediately
+      const r = item.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) item.classList.add('in');
+    });
     return () => items.forEach((item) => observer.unobserve(item));
   }, []);
   return ref;

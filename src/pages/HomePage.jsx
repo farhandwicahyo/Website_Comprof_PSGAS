@@ -7,6 +7,7 @@ import Facilities from '../components/Facilities';
 import Products from '../components/Products';
 import WhyUs from '../components/WhyUs';
 import Roadmap from '../components/Roadmap';
+import Contribute from '../components/Contribute';
 import News from '../components/News';
 import Clients from '../components/Clients';
 
@@ -30,13 +31,14 @@ export default function HomePage() {
     <>
       <Hero />
       {sec.about?.visible !== false && <About />}
+      {sec.clients?.visible !== false && <Clients />}
       {sec.process?.visible !== false && <Process />}
       {sec.facilities?.visible !== false && <Facilities />}
       {sec.products?.visible !== false && <Products />}
       {sec.whyus?.visible !== false && <WhyUs />}
       {sec.roadmap?.visible !== false && <Roadmap />}
-      {sec.news?.visible !== false && <News />}
-      {sec.clients?.visible !== false && <Clients />}
+      {sec.contribute?.visible !== false && <Contribute />}
+      {/* {sec.news?.visible !== false && <News />} */}
     </>
   );
 }

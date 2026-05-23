@@ -2,6 +2,7 @@ import { useScrollAnimationMultiple } from '../hooks/useScrollAnimation';
 import { ArrowRight, Calendar, Clock, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useContent } from '../context/ContentContext';
+import { useLanguage } from '../context/LanguageContext';
 
 const TAG_STYLES = [
   'text-psg-blue bg-psg-blue/10',
@@ -24,6 +25,8 @@ function tagStyle(cat) {
 export default function News() {
   const ref = useScrollAnimationMultiple();
   const { content } = useContent();
+  const { t } = useLanguage();
+  const newsT = t('news');
 
   // Only published, max 5
   const published = (content.news || []).filter((n) => n.published !== false);
@@ -33,14 +36,14 @@ export default function News() {
   if (!featured) return null;
 
   return (
-    <section id="berita" className="py-24 lg:py-32 section-light" ref={ref}>
+    <section id="berita" className="py-12 lg:py-16 section-light" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
           <div>
-            <div className="anim"><span className="section-label">Update Terbaru</span></div>
-            <h2 className="anim section-heading" style={{ transitionDelay: '80ms' }}>Berita Terkini</h2>
+            <div className="anim"><span className="section-label">{newsT.eyebrow}</span></div>
+            <h2 className="anim section-heading" style={{ transitionDelay: '80ms' }}>{newsT.heading}</h2>
           </div>
           {/* <Link
             to="/berita"
@@ -71,7 +74,7 @@ export default function News() {
             <div className="p-7 flex flex-col flex-1">
               <div className="flex items-center gap-4 text-gray-400 text-xs mb-4 flex-wrap">
                 <span className="flex items-center gap-1.5"><Calendar size={12} />{featured.date}</span>
-                <span className="flex items-center gap-1.5"><Clock size={12} />{featured.read} baca</span>
+                <span className="flex items-center gap-1.5"><Clock size={12} />{featured.read} {newsT.readUnit}</span>
                 {featured.author && <span className="flex items-center gap-1.5"><User size={12} />{featured.author}</span>}
               </div>
               <h3 className="font-extrabold text-psg-navy text-xl leading-tight mb-3 group-hover:text-psg-blue transition-colors">
@@ -79,7 +82,7 @@ export default function News() {
               </h3>
               <p className="text-gray-500 text-sm leading-relaxed flex-1 mb-5">{featured.excerpt}</p>
               <span className="inline-flex items-center gap-2 text-sm font-semibold text-psg-blue group-hover:gap-3 transition-all">
-                Baca Selengkapnya <ArrowRight size={15} />
+                {newsT.readMore} <ArrowRight size={15} />
               </span>
             </div>
           </Link>
@@ -118,7 +121,7 @@ export default function News() {
               className="anim-r group mt-auto border-2 border-dashed border-psg-border hover:border-psg-blue rounded-xl p-4 flex items-center justify-center gap-2 text-sm font-semibold text-gray-400 hover:text-psg-blue transition-all"
               style={{ transitionDelay: `${(rest.length + 1) * 100}ms` }}
             >
-              Lihat Semua Berita
+              {newsT.seeAll}
               <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>

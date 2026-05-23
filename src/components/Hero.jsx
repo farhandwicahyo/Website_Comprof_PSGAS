@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { useContent } from '../context/ContentContext';
+import { useLanguage } from '../context/LanguageContext';
 
 function Ticker({ to, suffix }) {
   const [n, setN] = useState(0);
@@ -47,8 +48,15 @@ function handleCtaClick(link, type) {
 
 export default function Hero() {
   const { content } = useContent();
+  const { t } = useLanguage();
   const hero = content.hero;
-  const STATS = content.stats;
+  const heroT = t('hero');
+  const statLabels = heroT.stats;
+  const STATS = content.stats.map((s, i) => ({
+    ...s,
+    label: statLabels[i]?.label ?? s.label,
+    suffix: statLabels[i]?.suffix ?? s.suffix,
+  }));
   const ref = useRef(null);
 
   useEffect(() => {
@@ -87,22 +95,22 @@ export default function Hero() {
                 <span className="w-2 h-2 rounded-full bg-psg-red opacity-40" />
               </div>
               <span className="text-blue-200 text-xs font-bold uppercase tracking-[0.2em]">
-                {hero.eyebrow}
+                {heroT.eyebrow}
               </span>
             </div>
 
             <h1 className="ht text-[2.5rem] sm:text-[3.25rem] lg:text-[4rem] font-black text-white leading-[1.08] tracking-tight mb-6">
-              {hero.headline1}
+              {heroT.headline1}
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-psg-green via-[#d4ed3a] to-[#ADC32B]">
-                {hero.headline2}
+                {heroT.headline2}
               </span>
               <br />
-              {hero.headline3}
+              {heroT.headline3}
             </h1>
 
             <p className="ht text-blue-100 text-lg leading-relaxed mb-10 max-w-xl font-light">
-              {hero.description}
+              {heroT.description}
             </p>
 
             <div className="ht flex flex-wrap items-center gap-4">
@@ -111,7 +119,7 @@ export default function Hero() {
                 onClick={() => handleCtaClick(hero.btnPrimaryLink || '#tentang', hero.btnPrimaryType || 'scroll')}
                 className="inline-flex items-center gap-2.5 bg-psg-red hover:bg-red-600 text-white font-bold text-sm px-7 py-3.5 rounded-lg shadow-lg transition-all active:scale-95"
               >
-                {hero.btnPrimary}
+                {heroT.btnPrimary}
                 <ArrowRight size={17} />
               </button>
               {hero.btnSecondaryVisible !== false && (
@@ -120,7 +128,7 @@ export default function Hero() {
                   onClick={() => handleCtaClick(hero.btnSecondaryLink || '#proses', hero.btnSecondaryType || 'scroll')}
                   className="inline-flex items-center gap-2.5 border border-white/30 text-white font-semibold text-sm px-7 py-3.5 rounded-lg hover:bg-white/10 transition-all active:scale-95"
                 >
-                  {hero.btnSecondary}
+                  {heroT.btnSecondary}
                 </button>
               )}
             </div>

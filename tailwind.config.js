@@ -30,6 +30,15 @@ export default {
         'psg-gradient': 'linear-gradient(135deg, #003060 0%, #0075BF 100%)',
         'hero-gradient': 'linear-gradient(to right, rgba(0,48,96,0.95) 0%, rgba(0,117,191,0.85) 60%, rgba(0,117,191,0.5) 100%)',
       },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+      },
+      animation: {
+        marquee: 'marquee 32s linear infinite',
+      },
     },
   },
   plugins: [],

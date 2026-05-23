@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ContentProvider } from './context/ContentContext';
 import { AuthProvider } from './context/AuthContext';
+import { LanguageProvider } from './context/LanguageContext';
 
 import PublicLayout from './layouts/PublicLayout';
 import HomePage from './pages/HomePage';
@@ -21,9 +22,14 @@ import EditContact from './cms/editors/EditContact';
 import EditSections from './cms/editors/EditSections';
 import EditNavbar from './cms/editors/EditNavbar';
 import EditSettings from './cms/editors/EditSettings';
+import EditPartners from './cms/editors/EditPartners';
+import EditAwards from './cms/editors/EditAwards';
+import EditRoadmap from './cms/editors/EditRoadmap';
+import EditContribute from './cms/editors/EditContribute';
 
 export default function App() {
   return (
+    <LanguageProvider>
     <ContentProvider>
       <AuthProvider>
         <BrowserRouter>
@@ -58,6 +64,10 @@ export default function App() {
               <Route path="sections" element={<EditSections />} />
               <Route path="navbar" element={<EditNavbar />} />
               <Route path="settings" element={<EditSettings />} />
+              <Route path="partners" element={<EditPartners />} />
+              <Route path="awards" element={<EditAwards />} />
+              <Route path="roadmap" element={<EditRoadmap />} />
+              <Route path="contribute" element={<EditContribute />} />
             </Route>
 
             {/* Fallback */}
@@ -66,5 +76,6 @@ export default function App() {
         </BrowserRouter>
       </AuthProvider>
     </ContentProvider>
+    </LanguageProvider>
   );
 }
