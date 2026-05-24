@@ -132,24 +132,6 @@ export default function Hero() {
                 </button>
               )}
             </div>
-
-            {hero.showShareholders !== false && (
-            <div className="ht flex flex-wrap gap-3 mt-8">
-              {[
-                { pct: hero.shareholder1Pct, name: hero.shareholder1Name, dot: 'bg-psg-red' },
-                { pct: hero.shareholder2Pct, name: hero.shareholder2Name, dot: 'bg-psg-green' },
-              ].map((s) => (
-                <div
-                  key={s.name}
-                  className="flex items-center gap-2 border border-white/20 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full"
-                >
-                  <span className={`w-2 h-2 rounded-full ${s.dot}`} />
-                  <span className="text-white/90 text-xs font-semibold">{s.name}</span>
-                  <span className="text-blue-300 text-xs font-bold">{s.pct}</span>
-                </div>
-              ))}
-            </div>
-            )}
           </div>
         </div>
       </div>

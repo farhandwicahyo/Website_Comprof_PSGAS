@@ -5,7 +5,7 @@ export const translations = {
   id: {
     nav: {
       contact: 'Hubungi Kami',
-      topStrip: 'PT Perta-Samtan Gas — Perusahaan LPG & Gas Terkemuka Indonesia',
+      topStrip: 'PT Perta-Samtan Gas — Harmony World Class',
       brandName: 'PT Perta-Samtan Gas',
       menuAria: 'Menu',
       menuItems: [
@@ -24,7 +24,7 @@ export const translations = {
       headline2: 'Menjadi LPG',
       headline3: 'untuk Indonesia',
       description:
-        'Perusahaan pengolahan gas bumi dengan dua kilang terintegrasi di Prabumulih dan Sungai Gerong — mendukung ketahanan energi dan program konversi BBM nasional.',
+        'Perusahaan pengolahan gas bumi dengan dua kilang terintegrasi di Prabumulih dan Banyuasin — mendukung ketahanan energi dan program konversi BBM nasional.',
       btnPrimary: 'Profil Perusahaan',
       btnSecondary: 'Proses Bisnis',
       stats: [
@@ -43,7 +43,7 @@ export const translations = {
       body1:
         'PT Perta-Samtan Gas didirikan pada 7 Mei 2008 dengan tujuan memproduksi LPG (Liquified Petroleum Gas) guna mendukung program Pemerintah dalam rangka konversi minyak tanah ke LPG serta penyediaan energi bagi masyarakat, sekaligus mengurangi beban Pemerintah dalam subsidi BBM.',
       body2:
-        'Perseroan bergerak dalam bisnis pengolahan gas serta menyediakan layanan jasa dan infrastruktur terkait Pemrosesan Gas dengan dua kilang terintegrasi di Prabumulih dan Sungai Gerong, Sumatera Selatan.',
+        'Perseroan bergerak dalam bisnis pengolahan gas serta menyediakan layanan jasa dan infrastruktur terkait Pemrosesan Gas dengan dua kilang terintegrasi di Prabumulih dan Banyuasin, Sumatera Selatan.',
       vision: 'Menjadi Perseroan Terkemuka di Dunia dalam Industri LPG & Gas',
       mission:
         'Memberikan nilai tambah bagi Pemegang Saham, Karyawan, dan Masyarakat Indonesia melalui efisiensi kerja dan daya saing yang tinggi.',
@@ -57,7 +57,7 @@ export const translations = {
       missionLabel: 'Misi',
       visionMissionHeading: 'Visi & Misi Perseroan',
       objectivesHeading: 'Tujuan & Maksud Perseroan',
-      facilityLabel: 'Kilang Fraksinasi Sungai Gerong',
+      facilityLabel: 'Kilang Fraksinasi',
     },
 
     clients: {
@@ -88,8 +88,8 @@ export const translations = {
       steps: [
         { title: 'Feed Gas Supply',   sub: 'Pasokan Gas Alam',     desc: 'Gas alam dari PHR Zona 4 dialirkan via pipa 28" & 20", rata-rata ±200 mmscfd.', output: '±200 MMSCFD' },
         { title: 'NGL Extraction',    sub: 'Kilang Prabumulih',    desc: 'NGL dipisahkan dari gas alam. Lean gas dikembalikan ke Pertamina Hulu Rokan.', output: 'NGL Liquid' },
-        { title: 'Pipeline ±90 KM',   sub: 'Transportasi NGL',    desc: 'NGL dialirkan via pipa 8 inci sepanjang ±90 km ke Kilang Sungai Gerong.', output: '8" · ±90 KM' },
-        { title: 'LPG Fractionation', sub: 'Kilang Sungai Gerong', desc: 'NGL difraksinasi menghasilkan LPG 710 MT/hari dan Kondensat 2.200 bbl/hari.', output: '710 MT/Hari' },
+        { title: 'Pipeline ±90 KM',   sub: 'Transportasi NGL',    desc: 'NGL dialirkan via pipa 8 inci sepanjang ±90 km ke Kilang Banyuasin.', output: '8" · ±90 KM' },
+        { title: 'LPG Fractionation', sub: 'Kilang Banyuasin', desc: 'NGL difraksinasi menghasilkan LPG 710 MT/hari dan Kondensat 2.200 bbl/hari.', output: '710 MT/Hari' },
         { title: 'Distribution',      sub: 'Distribusi PSO',       desc: 'LPG disalurkan ke Pontianak, Bangka, dan Belitung melalui armada vessel.', output: 'PSO · 3 Destinasi' },
       ],
       stats: [
@@ -114,7 +114,7 @@ export const translations = {
       sub: 'PT Perta-Samtan Gas memiliki dua kilang terintegrasi di Sumatera Selatan, terhubung oleh jaringan pipa NGL sepanjang 90 km.',
       items: [
         {
-          title: 'Kilang Ekstraksi Prabumulih',
+          title: 'Kilang Ekstraksi',
           label: 'Extraction Plant',
           location: 'Prabumulih, Sumatera Selatan',
           desc: 'Berfungsi mengekstrak komponen NGL dari gas alam. Feed gas diperoleh dari PT Pertamina Hulu Rokan Regional 1 Zona 4 dengan volume rata-rata ±200 mmscfd.',
@@ -124,19 +124,18 @@ export const translations = {
           image: '/KilangEkstraksi.png',
         },
         {
-          title: 'Kilang Fraksinasi Sungai Gerong',
+          title: 'Kilang Fraksinasi',
           label: 'Fractionation Plant',
-          location: 'Sungai Gerong, Banyuasin, Sumatera Selatan',
+          location: 'Banyuasin, Sumatera Selatan',
           desc: 'Memproses NGL dari Prabumulih menjadi LPG Mixed (710 MT/hari) dan Kondensat (2.200 bbl/hari) untuk distribusi domestik nasional.',
-          spec1k: 'Kapasitas', spec1v: '250 MMSCFD',
-          spec2k: 'LPG',       spec2v: '710 MT/Hari',
-          spec3k: 'Kondensat', spec3v: '2.200 bbl/hari',
-          image: '/Kilang_Fraksinasi_Sungai_Gerong.png',
+          spec1k: 'LPG',       spec1v: '710 MT/Hari',
+          spec2k: 'Kondensat', spec2v: '2.200 bbl/hari',
+          image: '/Kilang_Fraksinasi_Sungai_Gerong.JPG',
         },
         {
           title: 'Pipa NGL',
           label: 'NGL Pipeline',
-          location: 'Prabumulih → Sungai Gerong',
+          location: 'Prabumulih → Banyuasin',
           desc: 'Pipa berdiameter 8 inci sepanjang ±90 km menghubungkan kedua kilang secara efisien.',
           spec1k: 'Panjang',   spec1v: '±90 KM',
           spec2k: 'Diameter',  spec2v: '8 Inci',
@@ -200,17 +199,15 @@ export const translations = {
       eyebrow: 'Perjalanan Kami',
       heading: 'Our Milestones',
       sub: 'Tonggak penting dalam perjalanan PT Perta-Samtan Gas sejak pendirian hingga menjadi perusahaan LPG terkemuka di Indonesia.',
-      achieved: '✓ Tercapai',
+      // achieved: '✓ Tercapai',
       planned: '→ Rencana',
       ctaHeading: '2.5 Juta Metrik Ton LPG Diproduksi',
-      ctaSub: 'Sejak fase komersial 1 Mei 2013 hingga Oktober 2018 — pencapaian bersejarah yang membuktikan kapabilitas operasional PT Perta-Samtan Gas dalam mendukung ketahanan energi nasional.',
+      ctaSub: 'Sejak fase komersial 1 Mei 2013 hingga tahun 2026 — pencapaian bersejarah yang membuktikan kapabilitas operasional PT Perta-Samtan Gas dalam mendukung ketahanan energi nasional.',
       ctaBtn: 'Hubungi Kami',
       milestones: [
-        { year: '2008',  title: 'Pendirian Perseroan',         done: true,  icon: '🏗️', desc: 'PT Perta-Samtan Gas resmi didirikan pada 7 Mei 2008. Dimiliki 66% Pertamina Gas & 34% ST International untuk memproduksi LPG mendukung program konversi BBM pemerintah.' },
+        { year: '2008',  title: 'Pendirian Perseroan',         done: true,  icon: '🏗️', desc: 'PT Perta-Samtan Gas resmi didirikan pada 7 Mei 2008. Dimiliki 66% PT Pertamina Gas Negara & 34% ST International Ltd. untuk memproduksi LPG mendukung program konversi BBM pemerintah.' },
         { year: '2013',  title: 'Fase Komersial',              done: true,  icon: '🚀', desc: 'Kilang PT Perta-Samtan Gas memasuki fase komersial mulai 1 Mei 2013. Dimulainya produksi penuh LPG dan Kondensat dari kedua kilang terintegrasi.' },
-        { year: '2018',  title: '1 Juta Ton LPG',              done: true,  icon: '🏆', desc: 'Berhasil memproduksi 1 juta ton LPG sejak masa komersial hingga Oktober 2018 — tonggak bersejarah dalam perjalanan perusahaan.' },
-        { year: '—',     title: 'Proper Hijau',                done: true,  icon: '🌿', desc: 'Meraih penghargaan Proper Hijau dari Kementerian LHK RI atas komitmen pengelolaan lingkungan hidup yang unggul di seluruh area operasional.' },
-        { year: '—',     title: 'Patra Nirbaya Karya Madya',   done: true,  icon: '🛡️', desc: 'Meraih Penghargaan Keselamatan Kerja kategori Jam Kerja Aman — bukti nyata implementasi budaya HSSE yang konsisten.' },
+        { year: '2018',  title: '1 Juta Ton LPG',              done: true,  icon: '🏆', desc: 'Berhasil memproduksi 1 juta ton LPG sejak masa komersial hingga tahun 2026 — tonggak bersejarah dalam perjalanan perusahaan.' },
         { year: '2026+', title: 'Diversifikasi & Pertumbuhan', done: false, icon: '🌐', desc: 'Eksplorasi peluang bisnis di seluruh Indonesia, penguatan kemitraan strategis dengan Pemerintah, dan pengembangan potensi bisnis yang lebih luas.' },
       ],
     },
@@ -225,7 +222,7 @@ export const translations = {
 
     contribute: {
       eyebrow: 'Kontribusi & Kegiatan',
-      heading: 'Our Contribute',
+      heading: 'Our Contribution',
       sub: 'Dokumentasi kegiatan sosial, lingkungan, dan kontribusi PT Perta-Samtan Gas bagi masyarakat sekitar area operasional.',
       galleryLabel: 'Galeri Kegiatan',
       prevLabel: 'Foto sebelumnya',
@@ -259,7 +256,7 @@ export const translations = {
           links: [
             { l: 'Proses Bisnis',         h: '#proses'    },
             { l: 'Kilang Prabumulih',     h: '#fasilitas' },
-            { l: 'Kilang Sungai Gerong',  h: '#fasilitas' },
+            { l: 'Kilang Banyuasin',  h: '#fasilitas' },
             { l: 'Pipa NGL',              h: '#fasilitas' },
             { l: 'Distribusi LPG',        h: '#fasilitas' },
           ],
@@ -268,7 +265,7 @@ export const translations = {
           label: 'Informasi',
           links: [
             { l: 'Produk LPG',      h: '#produk'     },
-            { l: 'Our Contribute',  h: '#contribute' },
+            { l: 'Our Contribution',  h: '#contribute' },
             { l: 'Penghargaan',     h: '#pelanggan'  },
             { l: 'GCG',             h: '#'           },
             { l: 'Hubungi Kami',    h: '#kontak'     },
@@ -283,7 +280,7 @@ export const translations = {
   en: {
     nav: {
       contact: 'Contact Us',
-      topStrip: 'PT Perta-Samtan Gas — Leading LPG & Gas Company in Indonesia',
+      topStrip: 'PT Perta-Samtan Gas — Harmony World Class',
       brandName: 'PT Perta-Samtan Gas',
       menuAria: 'Menu',
       menuItems: [
@@ -292,7 +289,7 @@ export const translations = {
         { label: 'Process', link: '#proses' },
         { label: 'Facilities', link: '#fasilitas' },
         { label: 'Products', link: '#produk' },
-        { label: 'Our Contribute', link: '#contribute' },
+        { label: 'Our Contribution', link: '#contribute' },
       ],
     },
 
@@ -302,7 +299,7 @@ export const translations = {
       headline2: 'Into LPG',
       headline3: 'for Indonesia',
       description:
-        'A natural gas processing company with two integrated plants in Prabumulih and Sungai Gerong — supporting national energy security and the fuel conversion programme.',
+        'A natural gas processing company with two integrated plants in Prabumulih and Banyuasin — supporting national energy security and the fuel conversion programme.',
       btnPrimary: 'Company Profile',
       btnSecondary: 'Business Process',
       stats: [
@@ -321,7 +318,7 @@ export const translations = {
       body1:
         'PT Perta-Samtan Gas was established on 7 May 2008 with the objective of producing LPG (Liquefied Petroleum Gas) to support the Government\'s programme for converting kerosene to LPG and providing energy for the community, while reducing the Government\'s fuel subsidy burden.',
       body2:
-        'The Company is engaged in gas processing and provides related services and infrastructure for Gas Processing operations, with two integrated plants in Prabumulih and Sungai Gerong, South Sumatra.',
+        'The Company is engaged in gas processing and provides related services and infrastructure for Gas Processing operations, with two integrated plants in Prabumulih and Banyuasin, South Sumatra.',
       vision: 'To Become a Leading Company in the World in the LPG & Gas Industry',
       mission:
         'To deliver added value to Shareholders, Employees, and the Indonesian people through high operational efficiency and competitiveness.',
@@ -335,7 +332,7 @@ export const translations = {
       missionLabel: 'Mission',
       visionMissionHeading: 'Vision & Mission',
       objectivesHeading: 'Company Objectives',
-      facilityLabel: 'Sungai Gerong Fractionation Plant',
+      facilityLabel: 'Fractionation Plant',
     },
 
     clients: {
@@ -366,8 +363,8 @@ export const translations = {
       steps: [
         { title: 'Feed Gas Supply',   sub: 'Natural Gas Supply',     desc: 'Natural gas from PHR Zone 4 is fed via 28" & 20" pipelines at an average of ±200 mmscfd.', output: '±200 MMSCFD' },
         { title: 'NGL Extraction',    sub: 'Prabumulih Plant',       desc: 'NGL is separated from natural gas. Lean gas is returned to Pertamina Hulu Rokan.', output: 'NGL Liquid' },
-        { title: 'Pipeline ±90 KM',   sub: 'NGL Transportation',    desc: 'NGL is transported via an 8-inch pipeline approx. 90 km to Sungai Gerong Plant.', output: '8" · ±90 KM' },
-        { title: 'LPG Fractionation', sub: 'Sungai Gerong Plant',    desc: 'NGL is fractionated to yield 710 MT/day of LPG and 2,200 bbl/day of Condensate.', output: '710 MT/Day' },
+        { title: 'Pipeline ±90 KM',   sub: 'NGL Transportation',    desc: 'NGL is transported via an 8-inch pipeline approx. 90 km to Banyuasin Plant.', output: '8" · ±90 KM' },
+        { title: 'LPG Fractionation', sub: 'Banyuasin Plant',    desc: 'NGL is fractionated to yield 710 MT/day of LPG and 2,200 bbl/day of Condensate.', output: '710 MT/Day' },
         { title: 'Distribution',      sub: 'PSO Distribution',       desc: 'LPG is distributed to Pontianak, Bangka, and Belitung via a vessel fleet.', output: 'PSO · 3 Destinations' },
       ],
       stats: [
@@ -402,19 +399,18 @@ export const translations = {
           image: '/KilangEkstraksi.png',
         },
         {
-          title: 'Sungai Gerong Fractionation Plant',
+          title: 'Fractionation Plant',
           label: 'Fractionation Plant',
-          location: 'Sungai Gerong, Banyuasin, South Sumatra',
+          location: 'Banyuasin, South Sumatra',
           desc: 'Processes NGL from Prabumulih into LPG Mixed (710 MT/day) and Condensate (2,200 bbl/day) for national domestic distribution.',
-          spec1k: 'Capacity',   spec1v: '250 MMSCFD',
-          spec2k: 'LPG',        spec2v: '710 MT/Day',
-          spec3k: 'Condensate', spec3v: '2,200 bbl/day',
-          image: '/Kilang_Fraksinasi_Sungai_Gerong.png',
+          spec1k: 'LPG', spec1v: '710 MT/Day',
+          spec2k: 'Condensate', spec2v: '2,200 bbl/day',
+          image: '/Kilang_Fraksinasi_Sungai_Gerong.JPG',
         },
         {
           title: 'NGL Pipeline',
           label: 'NGL Pipeline',
-          location: 'Prabumulih → Sungai Gerong',
+          location: 'Prabumulih → Banyuasin',
           desc: 'An 8-inch diameter pipeline approximately 90 km in length that efficiently connects both plants.',
           spec1k: 'Length',   spec1v: '±90 KM',
           spec2k: 'Diameter', spec2v: '8 Inch',
@@ -481,14 +477,12 @@ export const translations = {
       achieved: '✓ Achieved',
       planned: '→ Planned',
       ctaHeading: '2.5 Million Metric Tons of LPG Produced',
-      ctaSub: 'Since the commercial phase on 1 May 2013 through October 2018 — a historic achievement proving the operational capability of PT Perta-Samtan Gas in supporting national energy security.',
+      ctaSub: 'Since the commercial phase on 1 May 2013 through 2026 — a historic achievement proving the operational capability of PT Perta-Samtan Gas in supporting national energy security.',
       ctaBtn: 'Contact Us',
       milestones: [
-        { year: '2008',  title: 'Company Establishment',      done: true,  icon: '🏗️', desc: 'PT Perta-Samtan Gas was officially established on 7 May 2008. Owned 66% by Pertamina Gas & 34% by ST International to produce LPG supporting the Government\'s fuel conversion programme.' },
-        { year: '2013',  title: 'Commercial Phase',           done: true,  icon: '🚀', desc: 'PT Perta-Samtan Gas\'s plant entered the commercial phase on 1 May 2013, beginning full LPG and Condensate production from both integrated plants.' },
-        { year: '2018',  title: '1 Million Tonnes of LPG',    done: true,  icon: '🏆', desc: 'Successfully produced 1 million tonnes of LPG from the commercial phase through October 2018 — a historic milestone in the company\'s journey.' },
-        { year: '—',     title: 'Proper Hijau Award',         done: true,  icon: '🌿', desc: 'Received the Proper Hijau award from the Ministry of Environment & Forestry for outstanding environmental management across all operational areas.' },
-        { year: '—',     title: 'Patra Nirbaya Karya Madya',  done: true,  icon: '🛡️', desc: 'Received the Occupational Safety Award for Safe Man-Hours — a testament to consistent HSSE culture implementation.' },
+        { year: '2008',  title: 'Company Establishment',      done: true,  icon: '🏗️', desc: 'PT Perta-Samtan Gas was officially established on 7 May 2008. Owned 66% by PT Pertamina Gas Negara and 34% by ST International Ltd. to produce LPG supporting the Government\'s fuel conversion programme.' },
+        { year: '2013',  title: 'Commercial Phase',           done: true,  icon: '🚀', desc: 'PT Perta-Samtan Gas entered the commercial phase on 1 May 2013, beginning full LPG and Condensate production from both integrated plants.' },
+        { year: '2018',  title: '1 Million Tonnes of LPG',    done: true,  icon: '🏆', desc: 'Successfully produced 1 million tonnes of LPG from the commercial phase through 2026 — a historic milestone in the company\'s journey.' },
         { year: '2026+', title: 'Diversification & Growth',   done: false, icon: '🌐', desc: 'Exploring business opportunities across Indonesia, strengthening strategic partnerships with the Government, and developing broader business potential.' },
       ],
     },
@@ -503,7 +497,7 @@ export const translations = {
 
     contribute: {
       eyebrow: 'Contributions & Activities',
-      heading: 'Our Contribute',
+      heading: 'Our Contribution',
       sub: 'Documentation of social, environmental, and community contribution activities by PT Perta-Samtan Gas around operational areas.',
       galleryLabel: 'Activity Gallery',
       prevLabel: 'Previous photo',
@@ -537,7 +531,7 @@ export const translations = {
           links: [
             { l: 'Business Process',       h: '#proses'    },
             { l: 'Prabumulih Plant',       h: '#fasilitas' },
-            { l: 'Sungai Gerong Plant',    h: '#fasilitas' },
+            { l: 'Banyuasin Plant',    h: '#fasilitas' },
             { l: 'NGL Pipeline',           h: '#fasilitas' },
             { l: 'LPG Distribution',       h: '#fasilitas' },
           ],
@@ -546,7 +540,7 @@ export const translations = {
           label: 'Information',
           links: [
             { l: 'LPG Products',    h: '#produk'     },
-            { l: 'Our Contribute',  h: '#contribute' },
+            { l: 'Our Contribution',  h: '#contribute' },
             { l: 'Awards',          h: '#pelanggan'  },
             { l: 'GCG',             h: '#'           },
             { l: 'Contact Us',      h: '#kontak'     },

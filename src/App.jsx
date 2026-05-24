@@ -29,8 +29,8 @@ import EditContribute from './cms/editors/EditContribute';
 
 export default function App() {
   return (
-    <LanguageProvider>
     <ContentProvider>
+    <LanguageProvider>
       <AuthProvider>
         <BrowserRouter>
           <Routes>
@@ -75,7 +75,7 @@ export default function App() {
           </Routes>
         </BrowserRouter>
       </AuthProvider>
-    </ContentProvider>
     </LanguageProvider>
+    </ContentProvider>
   );
 }

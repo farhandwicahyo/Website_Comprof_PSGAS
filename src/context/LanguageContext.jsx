@@ -1,5 +1,7 @@
-import { createContext, useContext, useState, useCallback } from 'react';
+import { createContext, useContext, useState, useCallback, useMemo } from 'react';
 import { translations } from '../i18n/translations';
+import { useContent } from './ContentContext';
+import { buildIdLocale } from '../utils/cmsMerge';
 
 const STORAGE_KEY = 'psg_lang';
 
@@ -15,7 +17,13 @@ function loadLang() {
 const LanguageContext = createContext(null);
 
 export function LanguageProvider({ children }) {
+  const { content } = useContent();
   const [lang, setLangState] = useState(loadLang);
+
+  const locale = useMemo(
+    () => (lang === 'id' ? buildIdLocale(content) : translations.en),
+    [lang, content],
+  );
 
   const setLang = useCallback((l) => {
     if (l !== 'id' && l !== 'en') return;
@@ -26,18 +34,18 @@ export function LanguageProvider({ children }) {
   const t = useCallback(
     (keyPath) => {
       const keys = keyPath.split('.');
-      let node = translations[lang];
+      let node = locale;
       for (const k of keys) {
         if (node == null) return keyPath;
         node = node[k];
       }
       return node ?? keyPath;
     },
-    [lang],
+    [locale],
   );
 
   return (
-    <LanguageContext.Provider value={{ lang, setLang, t, translations: translations[lang] }}>
+    <LanguageContext.Provider value={{ lang, setLang, t, translations: locale }}>
       {children}
     </LanguageContext.Provider>
   );

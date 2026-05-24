@@ -38,13 +38,19 @@ function pinLeft(f) {
 }
 
 /* ─── Card ─── */
-function StepCard({ step, inView, index }) {
+function StepCard({ step, inView, index, animate = true }) {
   const { Icon, accent, title, sub, desc, output, above } = step;
+  const Wrapper = animate ? motion.div : 'div';
+  const motionProps = animate
+    ? {
+        initial: { opacity: 0, y: above ? -18 : 18 },
+        animate: inView ? { opacity: 1, y: 0 } : { opacity: 0, y: above ? -18 : 18 },
+        transition: { duration: 0.5, delay: 0.35 + index * 0.12, ease: [0.22, 1, 0.36, 1] },
+      }
+    : {};
   return (
-    <motion.div
-      initial={{ opacity: 0, y: above ? -18 : 18 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: 0.35 + index * 0.12, ease: [0.22, 1, 0.36, 1] }}
+    <Wrapper
+      {...motionProps}
       className="bg-white rounded-2xl border border-gray-100 shadow-[0_4px_24px_rgba(0,0,0,0.08)] p-4 w-full group hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.12)] transition-all duration-300"
     >
       {/* Icon + labels row */}
@@ -90,7 +96,7 @@ function StepCard({ step, inView, index }) {
         <span className="opacity-50">↳</span>
         {output}
       </div>
-    </motion.div>
+    </Wrapper>
   );
 }
 
@@ -135,15 +141,17 @@ function Pin({ step, inView, index }) {
 export default function Process() {
   const { t } = useLanguage();
   const pr = t('process');
-  const STEPS = STEP_VISUALS.map((v, i) => ({ ...v, ...pr.steps[i] }));
+  const STEPS = STEP_VISUALS.map((v, i) => ({ ...v, ...(pr.steps?.[i] ?? {}) }));
   const STATS = pr.stats;
 
-  const roadRef    = useRef(null);
-  const inView     = useInView(roadRef, { once: true, margin: '-80px' });
-  const headerRef  = useRef(null);
-  const headerInView = useInView(headerRef, { once: true, margin: '-60px' });
-  const statsRef   = useRef(null);
-  const statsInView = useInView(statsRef, { once: true, margin: '-60px' });
+  // Ref must wrap BOTH desktop + mobile timelines — desktop-only ref stays
+  // display:none on mobile so useInView never fires there (content stays invisible).
+  const timelineRef = useRef(null);
+  const inView      = useInView(timelineRef, { once: true, margin: '-40px 0px' });
+  const headerRef   = useRef(null);
+  const headerInView = useInView(headerRef, { once: true, margin: '-40px 0px' });
+  const statsRef    = useRef(null);
+  const statsInView = useInView(statsRef, { once: true, margin: '-40px 0px' });
 
   return (
     /* overflowX clip prevents scrollbar from full-width road div */
@@ -181,8 +189,11 @@ export default function Process() {
         </div>
       </div>
 
-      {/* ════════ DESKTOP TIMELINE (ref attached here) ════════ */}
-      <div ref={roadRef} className="hidden lg:block relative">
+      {/* ════════ TIMELINE — one ref for inView on all breakpoints ════════ */}
+      <div ref={timelineRef} className="relative z-10">
+
+      {/* Desktop */}
+      <div className="hidden lg:block relative">
 
         {/* ── Row A: upper cards (01, 03, 05) ── */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -258,10 +269,10 @@ export default function Process() {
           </div>
         </div>
 
-      </div>{/* end desktop timeline */}
+      </div>{/* end desktop */}
 
-      {/* ════════ MOBILE ════════ */}
-      <div className="lg:hidden relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Mobile */}
+      <div className="lg:hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative pl-10">
           <div className="absolute left-4 top-0 bottom-0 w-[3px] bg-gray-200 rounded-full" />
           <motion.div
@@ -272,20 +283,25 @@ export default function Process() {
           />
           <div className="space-y-5">
             {STEPS.map((step, i) => (
-              <motion.div key={step.no} className="flex gap-4 items-start relative"
-                initial={{ opacity: 0, x: -16 }} animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.45, delay: 0.3 + i * 0.1 }}
+              <motion.div
+                key={i}
+                className="flex gap-4 items-start relative"
+                initial={{ opacity: 0, x: -16 }}
+                animate={inView ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }}
+                transition={{ duration: 0.45, delay: 0.15 + i * 0.08 }}
               >
                 <div className="w-8 h-8 rounded-full flex items-center justify-center text-white font-black text-[11px] flex-shrink-0 -ml-10 z-10 shadow-md ring-2 ring-white"
                   style={{ background: step.accent }}>
                   {step.no}
                 </div>
-                <StepCard step={step} inView={inView} index={i} />
+                <StepCard step={step} inView={inView} index={i} animate={false} />
               </motion.div>
             ))}
           </div>
         </div>
       </div>
+
+      </div>{/* end timelineRef wrapper */}
 
       {/* ── Stats ── */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">

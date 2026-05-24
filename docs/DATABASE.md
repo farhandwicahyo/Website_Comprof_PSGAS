@@ -522,7 +522,7 @@ flowchart TB
 | products | Produk | Products | true | 5 |
 | whyus | Nilai & HSSE | Values & HSSE | true | 6 |
 | roadmap | Roadmap | Milestones | true | 7 |
-| contribute | Kontribusi Kami | Our Contribute | true | 8 |
+| contribute | Kontribusi Kami | Our Contribution | true | 8 |
 | news | Berita | News | false | 9 |
 
 ---
@@ -609,7 +609,7 @@ flowchart TB
 | Proses | Process | #proses | 3 |
 | Fasilitas | Facilities | #fasilitas | 4 |
 | Produk | Products | #produk | 5 |
-| Kontribusi | Our Contribute | #contribute | 6 |
+| Kontribusi | Our Contribution | #contribute | 6 |
 
 ---
 
@@ -777,7 +777,7 @@ flowchart TB
 
 ---
 
-### 3.19 `contribute_section` — Our Contribute (header)
+### 3.19 `contribute_section` — Our Contribution (header)
 
 | Kolom | Tipe | Keterangan |
 |-------|------|------------|
@@ -1073,7 +1073,7 @@ Karena menggunakan `flex-col` (bukan grid tetap di level halaman), section lain 
 | Proses Bisnis | `process` | `process_steps` |
 | Fasilitas | `facilities` | `facilities`, `facility_specs` |
 | Produk | `products` | `products`, `product_excellence` |
-| Our Contribute | `contribute` | `contribute_section`, `contribute_photos` |
+| Our Contribution | `contribute` | `contribute_section`, `contribute_photos` |
 | Berita | `news` | `news_categories`, `news_articles` |
 | Kontak & Footer | `contact` | `contact_info`, `social_links` |
 | Terjemahan UI | `translations.js` (statis) | `site_translations` (JSON blob) atau `translations` (key-value) |
@@ -1242,9 +1242,9 @@ ORDER BY sort_order ASC;
 | Core Values / HSSE | `core_values`, `hsse_rules` | ❌ Belum ada editor |
 | Milestones / Roadmap | `milestones` | ❌ Belum ada editor |
 | Partners & Awards | `partners`, `awards` | ❌ Belum ada editor |
-| Our Contribute | `contribute_section`, `contribute_photos` | ❌ Belum ada editor |
+| Our Contribution | `contribute_section`, `contribute_photos` | ❌ Belum ada editor |
 
-Prioritas pembuatan editor: **Our Contribute** (foto CSR sering berubah) → **Milestones** → **Core Values**.
+Prioritas pembuatan editor: **Our Contribution** (foto CSR sering berubah) → **Milestones** → **Core Values**.
 
 ### 9.4 Aturan Kunci Tabel
 

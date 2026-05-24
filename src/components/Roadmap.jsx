@@ -1,16 +1,10 @@
 import { useScrollAnimationMultiple } from '../hooks/useScrollAnimation';
 import { useLanguage } from '../context/LanguageContext';
-import { useContent } from '../context/ContentContext';
 
 export default function Roadmap() {
   const ref = useScrollAnimationMultiple();
   const { t } = useLanguage();
-  const { content } = useContent();
-
-  // CMS milestones take priority; fall back to translations if not set
-  const MILESTONES = (content.milestones && content.milestones.length > 0)
-    ? content.milestones
-    : t('roadmap.milestones');
+  const MILESTONES = t('roadmap.milestones');
 
   return (
     <section id="roadmap" className="py-12 lg:py-16 section-light" ref={ref}>
@@ -49,11 +43,11 @@ export default function Roadmap() {
                             m.done ? 'bg-psg-blue/10 text-psg-blue' : 'bg-gray-100 text-gray-400'
                           }`}>{m.year}</span>
                         )}
-                        <span className={`ml-auto text-[10px] font-bold uppercase tracking-wider ${
+                        {/* <span className={`ml-auto text-[10px] font-bold uppercase tracking-wider ${
                           m.done ? 'text-green-600' : 'text-gray-400'
                         }`}>
                           {m.done ? t('roadmap.achieved') : t('roadmap.planned')}
-                        </span>
+                        </span> */}
                       </div>
                       <h3 className="font-bold text-psg-navy text-base mb-2">{m.title}</h3>
                       <p className="text-gray-500 text-sm leading-relaxed">{m.desc}</p>
@@ -62,12 +56,12 @@ export default function Roadmap() {
 
                   {/* Node */}
                   <div className="absolute left-0 lg:left-1/2 lg:-translate-x-1/2 flex-shrink-0 flex flex-col items-center">
-                    <div className={`w-14 h-14 rounded-full border-4 flex items-center justify-center font-extrabold text-xs shadow-md z-10 ${
+                    <div className={`min-w-[3.5rem] h-14 px-2 rounded-full border-4 flex items-center justify-center font-extrabold text-[10px] sm:text-xs shadow-md z-10 ${
                       m.done
                         ? 'bg-psg-blue border-white text-white shadow-psg-blue/30'
                         : 'bg-white border-gray-200 text-gray-400'
                     }`}>
-                      {m.year !== '—' ? m.year.slice(-2) : '★'}
+                      {m.year !== '—' ? m.year : '★'}
                     </div>
                   </div>
 

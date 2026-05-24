@@ -10,7 +10,7 @@ export const defaultContent = {
   navbar: {
     brandName: 'Perta-Samtan',
     brandSub: 'GAS',
-    topStrip: 'PT Perta-Samtan Gas — Perusahaan LPG & Gas Terkemuka Indonesia',
+    topStrip: 'PT Perta-Samtan Gas — Harmony World Class',
     showTopStrip: true,
     ctaLabel: 'Hubungi Kami',
     ctaLink: '#kontak',
@@ -43,7 +43,7 @@ export const defaultContent = {
     headline2: 'Menjadi LPG',
     headline3: 'untuk Indonesia',
     description:
-      'Perusahaan pengolahan gas bumi dengan dua kilang terintegrasi di Prabumulih dan Sungai Gerong — mendukung ketahanan energi dan program konversi BBM nasional.',
+      'Perusahaan pengolahan gas bumi dengan dua kilang terintegrasi di Prabumulih dan Banyuasin — mendukung ketahanan energi dan program konversi BBM nasional.',
     btnPrimary: 'Profil Perusahaan',
     btnPrimaryLink: '#tentang',
     btnPrimaryType: 'scroll',   // 'scroll' | 'external' | 'internal'
@@ -72,7 +72,7 @@ export const defaultContent = {
     body1:
       'PT Perta-Samtan Gas didirikan pada 7 Mei 2008 dengan tujuan memproduksi LPG (Liquified Petroleum Gas) guna mendukung program Pemerintah dalam rangka konversi minyak tanah ke LPG serta penyediaan energi bagi masyarakat, sekaligus mengurangi beban Pemerintah dalam subsidi BBM.',
     body2:
-      'Perseroan bergerak dalam bisnis pengolahan gas serta menyediakan layanan jasa dan infrastruktur terkait Pemrosesan Gas dengan dua kilang terintegrasi di Prabumulih dan Sungai Gerong, Sumatera Selatan.',
+      'Perseroan bergerak dalam bisnis pengolahan gas serta menyediakan layanan jasa dan infrastruktur terkait Pemrosesan Gas dengan dua kilang terintegrasi di Prabumulih dan Banyuasin, Sumatera Selatan.',
     vision: 'Menjadi Perseroan Terkemuka di Dunia dalam Industri LPG & Gas',
     mission:
       'Memberikan nilai tambah bagi Pemegang Saham, Karyawan, dan Masyarakat Indonesia melalui efisiensi kerja dan daya saing yang tinggi.',
@@ -85,7 +85,7 @@ export const defaultContent = {
     founded: '7 Mei 2008',
     capacity: '250 MMSCFD',
     plants: '2 Kilang',
-    hq: 'Sungai Gerong',
+    hq: 'Banyuasin',
   },
 
   process: [
@@ -107,13 +107,13 @@ export const defaultContent = {
       no: '03',
       icon: '🔩',
       title: 'Pipa NGL ±90 KM',
-      desc: 'NGL dialirkan melalui pipa berdiameter 8 inci sepanjang ±90 km dari Kilang Prabumulih menuju Kilang Fraksinasi Sungai Gerong.',
+      desc: 'NGL dialirkan melalui pipa berdiameter 8 inci sepanjang ±90 km dari Kilang Prabumulih menuju Kilang Fraksinasi Banyuasin.',
       meta: '8" · ±90 KM',
     },
     {
       no: '04',
       icon: '⚗️',
-      title: 'Kilang Fraksinasi Sungai Gerong',
+      title: 'Kilang Fraksinasi Banyuasin',
       desc: 'NGL difraksinasi menghasilkan LPG Mixed (Propane + Butane) 710 MT/hari dan Kondensat (Pentane+) 2.200 bbl/hari.',
       meta: '250 MMSCFD',
     },
@@ -128,44 +128,23 @@ export const defaultContent = {
 
   facilities: [
     {
-      title: 'Kilang Ekstraksi Prabumulih',
+      title: 'Kilang Ekstraksi',
       label: 'Extraction Plant',
       location: 'Prabumulih, Sumatera Selatan',
-      desc: 'Berfungsi mengekstrak komponen NGL dari gas alam. Feed gas diperoleh dari PT Pertamina Hulu Rokan Regional 1 Zona 4 dengan volume rata-rata ±200 mmscfd.',
+      desc: 'Berfungsi mengekstrak komponen NGL dari gas alam. Feed gas diperoleh dari PT Pertamina Hulu Rokan Regional 1 Zona 4.',
       image: '/KilangEkstraksi.png',
       spec1k: 'Feed Gas', spec1v: '±200 mmscfd',
-      spec2k: 'Output', spec2v: 'NGL + Lean Gas',
+      spec2k: 'Output', spec2v: 'NGL',
       spec3k: 'Sumber', spec3v: 'PHR Zona 4',
     },
     {
-      title: 'Kilang Fraksinasi Sungai Gerong',
+      title: 'Kilang Fraksinasi',
       label: 'Fractionation Plant',
-      location: 'Sungai Gerong, Banyuasin, Sumatera Selatan',
+      location: 'Banyuasin, Sumatera Selatan',
       desc: 'Memproses NGL dari Prabumulih menjadi LPG Mixed (710 MT/hari) dan Kondensat (2.200 bbl/hari) untuk distribusi domestik nasional.',
-      image: '/Kilang_Fraksinasi_Sungai_Gerong.png',
-      spec1k: 'Kapasitas', spec1v: '250 MMSCFD',
-      spec2k: 'LPG', spec2v: '710 MT/Hari',
-      spec3k: 'Kondensat', spec3v: '2.200 bbl/hari',
-    },
-    {
-      title: 'Pipa NGL',
-      label: 'NGL Pipeline',
-      location: 'Prabumulih → Sungai Gerong',
-      desc: 'Pipa berdiameter 8 inci sepanjang ±90 km menghubungkan kedua kilang secara efisien.',
-      image: 'https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=900&q=80',
-      spec1k: 'Panjang', spec1v: '±90 KM',
-      spec2k: 'Diameter', spec2v: '8 Inci',
-      spec3k: 'Koneksi', spec3v: '2 Kilang',
-    },
-    {
-      title: 'Depot & Jetty Distribusi',
-      label: 'Distribution Hub',
-      location: 'Pulau Layang & Jetty 01 RU III',
-      desc: 'Infrastruktur distribusi LPG ke Pontianak, Bangka, dan Belitung menggunakan armada vessel laut.',
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=900&q=80',
-      spec1k: 'Depot', spec1v: 'Pulau Layang',
-      spec2k: 'Jetty', spec2v: 'RU III',
-      spec3k: 'Tujuan', spec3v: 'Pontianak · Bangka',
+      image: '/Kilang_Fraksinasi_Sungai_Gerong.JPG',
+      spec1k: 'LPG', spec1v: '710 MT/Hari',
+      spec2k: 'Kondensat', spec2v: '2.200 bbl/hari',
     },
   ],
 
@@ -193,7 +172,7 @@ export const defaultContent = {
       title: 'PT Perta-Samtan Gas Pertahankan Proper Hijau dari Kementerian LHK',
       excerpt: 'Perta-Samtan Gas kembali meraih penghargaan Proper Hijau sebagai bukti konsistensi penerapan standar lingkungan hidup tertinggi dalam setiap kegiatan operasional kilang.',
       img: 'https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&w=1200&q=80',
-      content: `PT Perta-Samtan Gas kembali meraih penghargaan bergengsi Proper Hijau dari Kementerian Lingkungan Hidup dan Kehutanan (KLHK) Republik Indonesia. Penghargaan ini merupakan bukti nyata komitmen Perseroan dalam menerapkan standar pengelolaan lingkungan hidup tertinggi di seluruh area operasional, baik di Kilang Ekstraksi Prabumulih maupun Kilang Fraksinasi Sungai Gerong.
+      content: `PT Perta-Samtan Gas kembali meraih penghargaan bergengsi Proper Hijau dari Kementerian Lingkungan Hidup dan Kehutanan (KLHK) Republik Indonesia. Penghargaan ini merupakan bukti nyata komitmen Perseroan dalam menerapkan standar pengelolaan lingkungan hidup tertinggi di seluruh area operasional, baik di Kilang Ekstraksi Prabumulih maupun Kilang Fraksinasi Banyuasin.
 
 Program Penilaian Peringkat Kinerja Perusahaan dalam Pengelolaan Lingkungan (Proper) merupakan instrumen kebijakan yang dikembangkan Kementerian LHK untuk mendorong penaatan perusahaan dalam pengelolaan lingkungan hidup. Peringkat Hijau menandakan bahwa perusahaan telah melakukan pengelolaan lingkungan melampaui ketentuan yang dipersyaratkan dalam peraturan.
 
@@ -208,10 +187,10 @@ Beberapa program unggulan yang mendukung perolehan Proper Hijau ini antara lain:
       date: '3 Mei 2026',
       read: '4 menit',
       author: 'Tim Operasional',
-      title: 'Optimalisasi Kilang Fraksinasi Sungai Gerong Memasuki Fase Uji Coba',
+      title: 'Optimalisasi Kilang Fraksinasi Banyuasin Memasuki Fase Uji Coba',
       excerpt: 'Proyek peningkatan efisiensi kilang fraksinasi untuk meningkatkan kapasitas produksi LPG mulai memasuki fase uji coba operasional penuh.',
       img: 'https://images.unsplash.com/photo-1612174188395-0f75e7d40c68?auto=format&fit=crop&w=1200&q=80',
-      content: `PT Perta-Samtan Gas resmi memulai fase uji coba (commissioning) proyek optimalisasi Kilang Fraksinasi Sungai Gerong. Proyek strategis ini bertujuan untuk meningkatkan efisiensi proses fraksinasi NGL (Natural Gas Liquids) menjadi LPG Mixed dan Kondensat, sekaligus memperkuat keandalan operasional jangka panjang.
+      content: `PT Perta-Samtan Gas resmi memulai fase uji coba (commissioning) proyek optimalisasi Kilang Fraksinasi Banyuasin. Proyek strategis ini bertujuan untuk meningkatkan efisiensi proses fraksinasi NGL (Natural Gas Liquids) menjadi LPG Mixed dan Kondensat, sekaligus memperkuat keandalan operasional jangka panjang.
 
 Proyek optimalisasi ini mencakup pembaruan sistem instrumentasi dan kontrol otomasi, peningkatan kapasitas heat exchanger, serta modernisasi sistem pengamanan kilang (safety shutdown system). Investasi ini diharapkan dapat meningkatkan efisiensi konversi NGL menjadi produk bernilai tambah tinggi.
 
@@ -229,7 +208,7 @@ Setelah melewati fase uji coba selama 30 hari, kilang direncanakan akan kembali 
       title: 'HSSE Day 2026: Komitmen Zero Accident di Seluruh Area Operasional',
       excerpt: 'Perta-Samtan Gas menggelar HSSE Day 2026 sebagai momentum penguatan budaya keselamatan bagi seluruh karyawan, mitra, dan kontraktor.',
       img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80',
-      content: `PT Perta-Samtan Gas menyelenggarakan HSSE Day 2026 dengan tema "Satu Langkah Lebih Selamat: Menuju Zero Accident". Kegiatan ini diikuti oleh seluruh karyawan, mitra kerja, dan kontraktor yang beroperasi di lingkungan Kilang Prabumulih dan Kilang Sungai Gerong.
+      content: `PT Perta-Samtan Gas menyelenggarakan HSSE Day 2026 dengan tema "Satu Langkah Lebih Selamat: Menuju Zero Accident". Kegiatan ini diikuti oleh seluruh karyawan, mitra kerja, dan kontraktor yang beroperasi di lingkungan Kilang Prabumulih dan Kilang Banyuasin.
 
 Rangkaian kegiatan HSSE Day 2026 meliputi apel keselamatan, safety talk interaktif, demonstrasi penggunaan Alat Pelindung Diri (APD), simulasi tanggap darurat, serta kompetisi kuis HSSE yang diikuti antusias oleh para peserta. Selain itu, dilaksanakan juga pemeriksaan kesehatan gratis bagi seluruh karyawan dan pekerja kontraktor.
 
@@ -249,7 +228,7 @@ PT Perta-Samtan Gas mencatat raihan kumulatif jutaan jam kerja tanpa kecelakaan 
       img: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80',
       content: `PT Perta-Samtan Gas kembali merealisasikan program Tanggung Jawab Sosial Perusahaan (CSR/ESG) dengan menyalurkan bantuan kepada masyarakat yang tinggal di Ring 1 area operasional Banyuasin, Sumatera Selatan.
 
-Program yang dilaksanakan kali ini meliputi penyaluran bantuan paket sembako bagi keluarga kurang mampu, pelatihan keterampilan vokasi (menjahit, pengolahan makanan, dan kerajinan tangan) bagi ibu rumah tangga, serta beasiswa pendidikan bagi pelajar berprestasi dari keluarga kurang mampu di sekitar Kilang Sungai Gerong.
+Program yang dilaksanakan kali ini meliputi penyaluran bantuan paket sembako bagi keluarga kurang mampu, pelatihan keterampilan vokasi (menjahit, pengolahan makanan, dan kerajinan tangan) bagi ibu rumah tangga, serta beasiswa pendidikan bagi pelajar berprestasi dari keluarga kurang mampu di sekitar Kilang Banyuasin.
 
 Koordinator Program CSR PT Perta-Samtan Gas menjelaskan bahwa program ini merupakan bagian dari komitmen jangka panjang Perseroan untuk memberikan nilai tambah bagi masyarakat sekitar. "Kami percaya bahwa keberhasilan bisnis kami harus berbanding lurus dengan peningkatan kesejahteraan masyarakat di sekitar kami beroperasi," tuturnya.
 
@@ -287,12 +266,12 @@ Penghargaan Patra Nirbaya merupakan pengakuan tertinggi di sektor energi dan per
 
   /* ── Mitra / Partners ── */
   partners: [
-    { name: 'Pertamina Gas Negara',  logo: '/partners/pertamina_gas_negara.PNG' },
-    { name: 'Pertamina Patra Niaga', logo: '/partners/pertamina_patra_niaga.PNG' },
-    { name: 'Pertagas',              logo: '/partners/pertagas.png' },
-    { name: 'ST International',      logo: '/partners/st_internasional.png' },
-    { name: 'Pertamina RU III',      logo: '/partners/pertamina_ru_iii.png' },
-    { name: 'Kementerian ESDM',      logo: '/partners/kementrian_esdm.jpeg' },
+    { name: 'PT Pertamina Gas Negara',  logo: '/partners/pertamina_gas_negara.PNG' },
+    { name: 'PT Pertamina Patra Niaga', logo: '/partners/pertamina_patra_niaga.PNG' },
+    { name: 'PT Pertamina Gas',         logo: '/partners/pertagas.png' },
+    { name: 'ST International Ltd',     logo: '/partners/st_internasional.png' },
+    { name: 'Pertamina RU III',         logo: '/partners/pertamina_ru_iii.png' },
+    { name: 'Kementerian ESDM',         logo: '/partners/kementrian_esdm.jpeg' },
   ],
 
   /* ── Penghargaan / Awards ── */
@@ -331,11 +310,9 @@ Penghargaan Patra Nirbaya merupakan pengakuan tertinggi di sektor energi dan per
 
   /* ── Roadmap / Milestones ── */
   milestones: [
-    { year: '2008',  icon: '🏗️', done: true,  title: 'Pendirian Perseroan',         desc: 'PT Perta-Samtan Gas resmi didirikan pada 7 Mei 2008. Dimiliki 66% Pertamina Gas & 34% ST International untuk memproduksi LPG mendukung program konversi BBM pemerintah.' },
+    { year: '2008',  icon: '🏗️', done: true,  title: 'Pendirian Perseroan',         desc: 'PT Perta-Samtan Gas resmi didirikan pada 7 Mei 2008. Dimiliki 66% PT Pertamina Gas Negara & 34% ST International Ltd. untuk memproduksi LPG mendukung program konversi BBM pemerintah.' },
     { year: '2013',  icon: '🚀', done: true,  title: 'Fase Komersial',              desc: 'Kilang PT Perta-Samtan Gas memasuki fase komersial mulai 1 Mei 2013. Dimulainya produksi penuh LPG dan Kondensat dari kedua kilang terintegrasi.' },
-    { year: '2018',  icon: '🏆', done: true,  title: '1 Juta Ton LPG',              desc: 'Berhasil memproduksi 1 juta ton LPG sejak masa komersial hingga Oktober 2018 — tonggak bersejarah dalam perjalanan perusahaan.' },
-    { year: '—',     icon: '🌿', done: true,  title: 'Proper Hijau',                desc: 'Meraih penghargaan Proper Hijau dari Kementerian LHK RI atas komitmen pengelolaan lingkungan hidup yang unggul di seluruh area operasional.' },
-    { year: '—',     icon: '🛡️', done: true,  title: 'Patra Nirbaya Karya Madya',   desc: 'Meraih Penghargaan Keselamatan Kerja kategori Jam Kerja Aman — bukti nyata implementasi budaya HSSE yang konsisten.' },
+    { year: '2018',  icon: '🏆', done: true,  title: '1 Juta Ton LPG',              desc: 'Berhasil memproduksi 1 juta ton LPG sejak masa komersial hingga tahun 2026 — tonggak bersejarah dalam perjalanan perusahaan.' },
     { year: '2026+', icon: '🌐', done: false, title: 'Diversifikasi & Pertumbuhan', desc: 'Eksplorasi peluang bisnis di seluruh Indonesia, penguatan kemitraan strategis dengan Pemerintah, dan pengembangan potensi bisnis yang lebih luas.' },
   ],
 
@@ -375,11 +352,11 @@ Penghargaan Patra Nirbaya merupakan pengakuan tertinggi di sektor energi dan per
 
   contact: {
     phone1: '+62-711 5740701 s.d. 5740704',
-    phone1Sub: 'Kantor Pusat, Sungai Gerong',
+    phone1Sub: 'Kantor Pusat, Banyuasin',
     phone2: '021-57958218 / 57958219',
     phone2Sub: 'Kantor Perwakilan Jakarta',
     website: 'www.pertasamtan.com',
-    address: 'Jl. No. 8 Komperta Sungai Gerong',
+    address: 'Jl. No. 8 Komperta Banyuasin',
     addressSub: 'Kab. Banyuasin, Sumsel 30962',
     liaisonAddress:
       'The East Building lt.11-07, Jl. Dr. Ide Anak Agung Gde Agung Kav. E.3.2 No. 1, Kuningan Barat, Jakarta Selatan 12950',

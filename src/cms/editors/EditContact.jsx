@@ -17,7 +17,7 @@ export default function EditContact() {
     >
       <Section title="Kontak Kantor Pusat">
         <Field label="Nomor Telepon" value={form.phone1} onChange={set('phone1')} placeholder="+62-..." />
-        <Field label="Keterangan Telepon" value={form.phone1Sub} onChange={set('phone1Sub')} placeholder="cth: Kantor Pusat, Sungai Gerong" />
+        <Field label="Keterangan Telepon" value={form.phone1Sub} onChange={set('phone1Sub')} placeholder="cth: Kantor Pusat, Banyuasin" />
       </Section>
 
       <Section title="Kontak Kantor Perwakilan Jakarta">

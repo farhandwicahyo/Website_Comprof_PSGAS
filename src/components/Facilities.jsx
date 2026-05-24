@@ -3,6 +3,15 @@ import { useLanguage } from '../context/LanguageContext';
 
 const ACCENTS = ['bg-psg-red', 'bg-psg-blue', 'bg-[#6b7a19]', 'bg-psg-navy'];
 
+/** Hanya pasangan label+nilai yang terisi (mis. LPG & Kondensat saja). */
+function specsFromFacility(f) {
+  return [
+    [f.spec1k, f.spec1v],
+    [f.spec2k, f.spec2v],
+    [f.spec3k, f.spec3v],
+  ].filter(([k, v]) => k && v);
+}
+
 const LocationIcon = () => (
   <svg viewBox="0 0 16 16" className="w-3 h-3 fill-gray-400 flex-shrink-0" aria-hidden>
     <path d="M8 1a5 5 0 0 1 5 5c0 3.5-5 9-5 9S3 9.5 3 6a5 5 0 0 1 5-5zm0 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4z" />
@@ -30,9 +39,13 @@ function FacilityCardBig({ f, delay }) {
           {f.location}
         </p>
         <p className="text-gray-500 text-xs leading-relaxed flex-1 mb-4">{f.desc}</p>
-        <div className="grid grid-cols-3 gap-2 pt-3 border-t border-gray-100">
-          {f.specs.map(([k, v]) => (
-            <div key={k}>
+        <div
+          className={`grid gap-2 pt-3 border-t border-gray-100 ${
+            f.specs.length <= 2 ? 'grid-cols-2' : 'grid-cols-3'
+          }`}
+        >
+          {f.specs.map(([k, v], si) => (
+            <div key={`${k}-${si}`}>
               <div className="text-xs font-bold text-psg-blue">{v}</div>
               <div className="text-[10px] text-gray-400 mt-0.5">{k}</div>
             </div>
@@ -87,7 +100,7 @@ export default function Facilities() {
   const facT = t('facilities');
   const FACILITIES = facT.items.map((f, i) => ({
     ...f,
-    specs: [[f.spec1k, f.spec1v], [f.spec2k, f.spec2v], [f.spec3k, f.spec3v]],
+    specs: specsFromFacility(f),
     accent: ACCENTS[i % ACCENTS.length],
   }));
 

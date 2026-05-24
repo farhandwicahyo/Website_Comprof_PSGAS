@@ -3,6 +3,9 @@ import { defaultContent } from '../data/defaultContent';
 
 const STORAGE_KEY = 'psg_content_v1';
 
+/** Naikkan angka ini setiap defaultContent.js diubah agar cache browser ikut refresh. */
+export const CONTENT_VERSION = 7;
+
 /**
  * Deep merge: values from `stored` override `defaults`,
  * but any key that exists in `defaults` but is missing from
@@ -12,6 +15,7 @@ const STORAGE_KEY = 'psg_content_v1';
 function mergeWithDefaults(defaults, stored) {
   const result = { ...defaults };
   for (const key of Object.keys(stored)) {
+    if (key === '_contentVersion') continue;
     const storedVal = stored[key];
     const defaultVal = defaults[key];
     if (
@@ -34,6 +38,34 @@ function mergeWithDefaults(defaults, stored) {
 function withoutLeanGas(products) {
   if (!Array.isArray(products)) return products;
   return products.filter((p) => !/lean\s*gas/i.test(String(p?.title ?? '')));
+}
+
+const REMOVED_FACILITY_RE =
+  /pipa\s*ngl|ngl\s*pipeline|depot|jetty|distribution\s*hub|distribusi/i;
+
+/** Hanya kilang ekstraksi & fraksinasi — bukan pipa/depot. */
+function isOperationalPlant(f) {
+  const text = `${f?.title ?? ''} ${f?.label ?? ''}`;
+  if (REMOVED_FACILITY_RE.test(text)) return false;
+  return /ekstraksi|extraction|fraksinasi|fractionation/i.test(text);
+}
+
+function withOperationalFacilitiesOnly(data) {
+  const defaults = defaultContent.facilities;
+  if (!Array.isArray(data.facilities)) {
+    return { ...data, facilities: defaults };
+  }
+  const kept = data.facilities.filter(isOperationalPlant);
+  let next = defaults;
+  if (kept.length >= 2) next = kept.slice(0, 2);
+  else if (kept.length === 1) next = [kept[0], defaults[1]].filter(Boolean);
+  if (
+    next.length === data.facilities.length &&
+    next.every((f, i) => f.title === data.facilities[i]?.title)
+  ) {
+    return data;
+  }
+  return { ...data, facilities: next };
 }
 
 function withCsrContributePhotos(data) {
@@ -74,9 +106,11 @@ function withOurContributeNav(data) {
 }
 
 function sanitizeContent(data) {
-  let next = data;
+  let next = { ...data, _contentVersion: CONTENT_VERSION };
   const products = withoutLeanGas(next.products);
   if (products !== next.products) next = { ...next, products };
+  const withFac = withOperationalFacilitiesOnly(next);
+  if (withFac !== next) next = withFac;
   const withNav = withOurContributeNav(next);
   if (withNav !== next) next = withNav;
   const withCsr = withCsrContributePhotos(next);
@@ -84,14 +118,28 @@ function sanitizeContent(data) {
   return next;
 }
 
+/** Setelah update defaultContent.js, muat ulang dari file & pertahankan berita CMS jika ada. */
+function migrateFromDefaults(stored) {
+  return sanitizeContent({
+    ...defaultContent,
+    news: Array.isArray(stored?.news) && stored.news.length ? stored.news : defaultContent.news,
+  });
+}
+
 function loadContent() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
       const stored = JSON.parse(raw);
-      // Merge: new top-level keys in defaultContent (e.g. navbar, sections, settings)
-      // are automatically filled in even if stored data is old.
-      const merged = mergeWithDefaults(defaultContent, stored);
+      if (stored._contentVersion !== CONTENT_VERSION) {
+        const migrated = migrateFromDefaults(stored);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
+        return migrated;
+      }
+      const merged = mergeWithDefaults(
+        { ...defaultContent, _contentVersion: CONTENT_VERSION },
+        stored,
+      );
       const sanitized = sanitizeContent(merged);
       if (JSON.stringify(sanitized) !== JSON.stringify(merged)) {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(sanitized));
@@ -99,7 +147,7 @@ function loadContent() {
       return sanitized;
     }
   } catch { /* ignore */ }
-  return defaultContent;
+  return sanitizeContent(defaultContent);
 }
 
 const ContentContext = createContext(null);
@@ -118,19 +166,28 @@ export function ContentProvider({ children }) {
 
   const resetSection = useCallback((section) => {
     setContent((prev) => {
-      const next = { ...prev, [section]: defaultContent[section] };
+      const next = sanitizeContent({ ...prev, [section]: defaultContent[section] });
       localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
       return next;
     });
   }, []);
 
   const resetAll = useCallback(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultContent));
-    setContent(defaultContent);
+    const fresh = sanitizeContent(defaultContent);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(fresh));
+    setContent(fresh);
   }, []);
 
+  const reloadFromDefaults = useCallback(() => {
+    const fresh = migrateFromDefaults(content);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(fresh));
+    setContent(fresh);
+  }, [content]);
+
   return (
-    <ContentContext.Provider value={{ content, updateSection, resetSection, resetAll }}>
+    <ContentContext.Provider
+      value={{ content, updateSection, resetSection, resetAll, reloadFromDefaults }}
+    >
       {children}
     </ContentContext.Provider>
   );

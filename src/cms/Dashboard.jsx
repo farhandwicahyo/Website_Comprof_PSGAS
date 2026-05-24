@@ -11,7 +11,7 @@ const SECTIONS_CONTENT = [
   { to: '/admin/hero',       icon: '🖼️',  label: 'Hero / Cover',            desc: 'Judul utama, CTA dengan link, statistik' },
   { to: '/admin/about',      icon: '🏢',  label: 'Tentang Perusahaan',       desc: 'Profil, visi, misi, tujuan perseroan' },
   { to: '/admin/process',    icon: '⚗️',  label: 'Proses Bisnis',            desc: 'Langkah-langkah pengolahan gas' },
-  { to: '/admin/facilities', icon: '🏭',  label: 'Fasilitas',                desc: 'Kilang, pipa NGL, depot & jetty' },
+  { to: '/admin/facilities', icon: '🏭',  label: 'Fasilitas',                desc: 'Kilang ekstraksi & fraksinasi' },
   { to: '/admin/products',   icon: '📦',  label: 'Produk',                   desc: 'LPG Mixed, Kondensat' },
   { to: '/admin/partners',   icon: '🤝',  label: 'Ekosistem & Mitra',        desc: 'Logo mitra di marquee animasi' },
   { to: '/admin/awards',     icon: '🏆',  label: 'Penghargaan & Pengakuan',  desc: 'Kartu penghargaan di carousel arc 3D' },
