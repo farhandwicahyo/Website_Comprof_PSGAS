@@ -57,7 +57,7 @@ export default function EditAwards() {
             value={item.img}
             onChange={v => setItem(i, 'img', v)}
             hint="Gunakan URL gambar (Unsplash, CDN, atau file di /public) — dipakai sebagai latar belakang kartu carousel"
-            placeholder="https://... atau /awards/piagam.jpg"
+            placeholder="cth: /sertifikat/Sertifikat_ISO9001.jpg"
           />
           {item.img && (
             <div className="relative rounded-xl overflow-hidden aspect-video max-w-xs border border-gray-200">

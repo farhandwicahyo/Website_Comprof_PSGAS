@@ -68,6 +68,7 @@ export const translations = {
       awardsHeading: 'Penghargaan yang Kami Peroleh',
       awardsSub:
         'Kami senantiasa berkomitmen untuk menjaga standar kualitas dan keselamatan yang tinggi, serta berkontribusi dalam pengembangan industri energi nasional.',
+      isoCertsHeading: 'Sertifikasi ISO',
       partnersEyebrow: 'Ekosistem & Mitra',
       partnersHeading: 'Bagian dari Ekosistem Pertamina',
       partnersSub:
@@ -86,11 +87,11 @@ export const translations = {
       heading: 'Proses Bisnis Utama',
       sub: 'Dari gas alam hulu hingga LPG siap distribusi.',
       steps: [
-        { title: 'Feed Gas Supply',   sub: 'Pasokan Gas Alam',     desc: 'Gas alam dari PHR Zona 4 dialirkan via pipa 28" & 20", rata-rata ±200 mmscfd.', output: '±200 MMSCFD' },
-        { title: 'NGL Extraction',    sub: 'Kilang Prabumulih',    desc: 'NGL dipisahkan dari gas alam. Lean gas dikembalikan ke Pertamina Hulu Rokan.', output: 'NGL Liquid' },
-        { title: 'Pipeline ±90 KM',   sub: 'Transportasi NGL',    desc: 'NGL dialirkan via pipa 8 inci sepanjang ±90 km ke Kilang Banyuasin.', output: '8" · ±90 KM' },
-        { title: 'LPG Fractionation', sub: 'Kilang Banyuasin', desc: 'NGL difraksinasi menghasilkan LPG 710 MT/hari dan Kondensat 2.200 bbl/hari.', output: '710 MT/Hari' },
-        { title: 'Distribution',      sub: 'Distribusi PSO',       desc: 'LPG disalurkan ke Pontianak, Bangka, dan Belitung melalui armada vessel.', output: 'PSO · 3 Destinasi' },
+        { title: 'Feed Gas Masuk',      sub: '',                    desc: 'Gas alam dari PT Pertamina Hulu Rokan Regional 1 Zona 4.', output: '' },
+        { title: 'Kilang Ekstraksi Prabumulih', sub: 'Prabumulih, Sumsel', desc: 'Gas alam diproses untuk memisahkan komponen NGL (Natural Gas Liquids). Lean gas dan kondensat dikembalikan ke Pertamina Hulu Rokan.', output: '' },
+        { title: 'Pipa NGL ±90 KM',     sub: 'Transportasi NGL',    desc: 'NGL dialirkan melalui pipa berdiameter 8 inci sepanjang ±90 km dari Kilang Prabumulih menuju Kilang Fraksinasi Banyuasin.', output: '8" · ±90 KM' },
+        { title: 'Kilang Fraksinasi Banyuasin', sub: 'Banyuasin, Sumsel', desc: 'NGL difraksinasi menghasilkan LPG Mixed (Propane + Butane) 710 MT/hari dan Kondensat (Pentane+) 2.200 bbl/hari.', output: '710 MT/Hari' },
+        { title: 'Distribusi Produk',   sub: '',                    desc: 'LPG disalurkan ke Depot Pulau Layang & Jetty 01 RU III menuju Pontianak, Bangka, dan Belitung melalui armada vessel.', output: '' },
       ],
       stats: [
         { val: '250',   unit: 'MMSCFD',   label: 'Kapasitas Desain',   sub: 'Total kedua kilang', hi: false },
@@ -166,7 +167,7 @@ export const translations = {
       ],
       items: [
         { no: '01', icon: '🔥', title: 'LPG Mixed', sub: 'Propane + Butane', color: 'psg-red',
-          desc: 'Produk utama berupa LPG campuran dengan kapasitas produksi 710 MT/hari, disalurkan ke PT Pertamina Patra Niaga untuk memenuhi kebutuhan domestik nasional (PSO).',
+          desc: 'Produk utama berupa LPG campuran dengan kapasitas produksi 710 MT/hari, disalurkan ke PT Pertamina Patra Niaga.',
           stat: '710 MT/Hari' },
         { no: '02', icon: '💧', title: 'Kondensat', sub: 'Pentane+', color: 'psg-blue',
           desc: 'Kondensat (Pentane+) sebagai produk sampingan fraksinasi 2.200 bbl/hari, dikembalikan ke PT Pertamina Hulu Rokan.',
@@ -205,10 +206,17 @@ export const translations = {
       ctaSub: 'Sejak fase komersial 1 Mei 2013 hingga tahun 2026 — pencapaian bersejarah yang membuktikan kapabilitas operasional PT Perta-Samtan Gas dalam mendukung ketahanan energi nasional.',
       ctaBtn: 'Hubungi Kami',
       milestones: [
-        { year: '2008',  title: 'Pendirian Perseroan',         done: true,  icon: '🏗️', desc: 'PT Perta-Samtan Gas resmi didirikan pada 7 Mei 2008. Dimiliki 66% PT Pertamina Gas Negara & 34% ST International Ltd. untuk memproduksi LPG mendukung program konversi BBM pemerintah.' },
-        { year: '2013',  title: 'Fase Komersial',              done: true,  icon: '🚀', desc: 'Kilang PT Perta-Samtan Gas memasuki fase komersial mulai 1 Mei 2013. Dimulainya produksi penuh LPG dan Kondensat dari kedua kilang terintegrasi.' },
-        { year: '2018',  title: '1 Juta Ton LPG',              done: true,  icon: '🏆', desc: 'Berhasil memproduksi 1 juta ton LPG sejak masa komersial hingga tahun 2026 — tonggak bersejarah dalam perjalanan perusahaan.' },
-        { year: '2026+', title: 'Diversifikasi & Pertumbuhan', done: false, icon: '🌐', desc: 'Eksplorasi peluang bisnis di seluruh Indonesia, penguatan kemitraan strategis dengan Pemerintah, dan pengembangan potensi bisnis yang lebih luas.' },
+        { year: '2008',  title: 'Pendirian Perseroan',              done: true,  icon: '🏗️', desc: 'PT Perta-Samtan Gas resmi didirikan pada 7 Mei 2008. Dimiliki 66% PT Pertamina Gas dan 34% ST International Ltd. untuk memproduksi LPG mendukung program konversi BBM pemerintah.' },
+        { year: '2010',  title: 'Alih Kepemilikan & Pembangunan Kilang', done: true, icon: '🤝', desc: 'E1 Corporation mengalihkan kepemilikan sahamnya kepada Samtan Co., Ltd. Pembangunan Kilang NGL di Sumatera Selatan dilaksanakan oleh kontraktor EPCC, PT Tripatra Engineers & Constructors pada bulan Juli 2010.' },
+        { year: '2011',  title: 'Perubahan Nama Perusahaan',        done: true,  icon: '📝', desc: 'Perubahan nama Perusahaan dari PT E1-Pertagas menjadi PT Perta-Samtan Gas pada tanggal 28 Januari 2011.' },
+        { year: '2012',  title: 'Peresmian Kilang NGL',             done: true,  icon: '🎖️', desc: 'Peresmian Kilang NGL di Sumatera Selatan pada tanggal 6 Desember 2012 oleh President RI Susilo Bambang Yudhoyono.' },
+        { year: '2013',  title: 'Fase Komersial',                   done: true,  icon: '🚀', desc: 'Kilang PT Perta-Samtan Gas memasuki fase komersial mulai 1 Mei 2013.' },
+        { year: '2014',  title: '100.000 Metrik Ton LPG',           done: true,  icon: '📦', desc: 'Berhasil melakukan pengiriman 100.000 Metrik Ton LPG untuk keperluan gas domestik (Sumatera bagian Selatan) melalui pipa.' },
+        { year: '2016',  title: 'Relokasi Kantor Pusat',            done: true,  icon: '🏢', desc: 'Relokasi kantor pusat PT Perta-Samtan Gas ke Kilang Fraksinasi, Banyuasin.' },
+        { year: '2018',  title: '1 Juta Ton LPG',                   done: true,  icon: '🏆', desc: 'Berhasil memproduksi 1 juta ton LPG sejak masa komersial hingga tahun 2026 — tonggak bersejarah dalam perjalanan perusahaan.' },
+        { year: '2019',  title: 'Perubahan Pemegang Saham',         done: true,  icon: '🔄', desc: 'Perubahan nama Samtan Co.Ltd., menjadi ST International Corporation pada tanggal 7 Desember 2019.' },
+        { year: '2023',  title: 'Jumper Line 12"',                  done: true,  icon: '🔧', desc: 'PT Perta-Samtan Gas berhasil menyelesaikan proyek pembangunan Jumper Line 12" yang berlokasi di SKG 10 dimana telah melakukan commissioning pada tanggal 26 Agustus 2023.' },
+        { year: '2026', title: 'Diversifikasi & Pertumbuhan',    done: false, icon: '🌐', desc: 'Eksplorasi peluang bisnis di seluruh Indonesia, penguatan kemitraan strategis dengan Pemerintah, dan pengembangan potensi bisnis yang lebih luas.' },
       ],
     },
 
@@ -343,6 +351,7 @@ export const translations = {
       awardsHeading: 'Awards We Have Received',
       awardsSub:
         'We are consistently committed to maintaining high quality and safety standards, while contributing to the development of the national energy industry.',
+      isoCertsHeading: 'ISO Certification',
       partnersEyebrow: 'Ecosystem & Partners',
       partnersHeading: 'Part of the Pertamina Ecosystem',
       partnersSub:
@@ -361,11 +370,11 @@ export const translations = {
       heading: 'Core Business Process',
       sub: 'From upstream natural gas to ready-to-distribute LPG.',
       steps: [
-        { title: 'Feed Gas Supply',   sub: 'Natural Gas Supply',     desc: 'Natural gas from PHR Zone 4 is fed via 28" & 20" pipelines at an average of ±200 mmscfd.', output: '±200 MMSCFD' },
-        { title: 'NGL Extraction',    sub: 'Prabumulih Plant',       desc: 'NGL is separated from natural gas. Lean gas is returned to Pertamina Hulu Rokan.', output: 'NGL Liquid' },
-        { title: 'Pipeline ±90 KM',   sub: 'NGL Transportation',    desc: 'NGL is transported via an 8-inch pipeline approx. 90 km to Banyuasin Plant.', output: '8" · ±90 KM' },
-        { title: 'LPG Fractionation', sub: 'Banyuasin Plant',    desc: 'NGL is fractionated to yield 710 MT/day of LPG and 2,200 bbl/day of Condensate.', output: '710 MT/Day' },
-        { title: 'Distribution',      sub: 'PSO Distribution',       desc: 'LPG is distributed to Pontianak, Bangka, and Belitung via a vessel fleet.', output: 'PSO · 3 Destinations' },
+        { title: 'Feed Gas Inlet',      sub: '',                    desc: 'Natural gas from PT Pertamina Hulu Rokan Regional 1 Zone 4.', output: '' },
+        { title: 'Prabumulih Extraction Plant', sub: 'Prabumulih, South Sumatra', desc: 'Natural gas is processed to separate NGL (Natural Gas Liquids). Lean gas and condensate are returned to Pertamina Hulu Rokan.', output: '' },
+        { title: 'NGL Pipeline ±90 KM', sub: 'NGL Transportation',  desc: 'NGL is conveyed via an 8-inch pipeline approximately 90 km from the Prabumulih plant to the Banyuasin fractionation plant.', output: '8" · ±90 KM' },
+        { title: 'Banyuasin Fractionation Plant', sub: 'Banyuasin, South Sumatra', desc: 'NGL is fractionated into LPG Mixed (Propane + Butane) at 710 MT/day and Condensate (Pentane+) at 2,200 bbl/day.', output: '710 MT/Day' },
+        { title: 'Product Distribution', sub: '',                   desc: 'LPG is distributed to Pontianak, Bangka, and Belitung via a vessel fleet.', output: '' },
       ],
       stats: [
         { val: '250',   unit: 'MMSCFD',  label: 'Design Capacity',    sub: 'Both plants total', hi: false },
@@ -441,7 +450,7 @@ export const translations = {
       ],
       items: [
         { no: '01', icon: '🔥', title: 'LPG Mixed', sub: 'Propane + Butane', color: 'psg-red',
-          desc: 'The main product — mixed LPG with a production capacity of 710 MT/day, supplied to PT Pertamina Patra Niaga to meet national domestic demand (PSO).',
+          desc: 'The main product — mixed LPG with a production capacity of 710 MT/day, supplied to PT Pertamina Patra Niaga.',
           stat: '710 MT/Day' },
         { no: '02', icon: '💧', title: 'Condensate', sub: 'Pentane+', color: 'psg-blue',
           desc: 'Condensate (Pentane+) as a fractionation by-product at 2,200 bbl/day, returned to PT Pertamina Hulu Rokan.',
@@ -480,10 +489,17 @@ export const translations = {
       ctaSub: 'Since the commercial phase on 1 May 2013 through 2026 — a historic achievement proving the operational capability of PT Perta-Samtan Gas in supporting national energy security.',
       ctaBtn: 'Contact Us',
       milestones: [
-        { year: '2008',  title: 'Company Establishment',      done: true,  icon: '🏗️', desc: 'PT Perta-Samtan Gas was officially established on 7 May 2008. Owned 66% by PT Pertamina Gas Negara and 34% by ST International Ltd. to produce LPG supporting the Government\'s fuel conversion programme.' },
-        { year: '2013',  title: 'Commercial Phase',           done: true,  icon: '🚀', desc: 'PT Perta-Samtan Gas entered the commercial phase on 1 May 2013, beginning full LPG and Condensate production from both integrated plants.' },
-        { year: '2018',  title: '1 Million Tonnes of LPG',    done: true,  icon: '🏆', desc: 'Successfully produced 1 million tonnes of LPG from the commercial phase through 2026 — a historic milestone in the company\'s journey.' },
-        { year: '2026+', title: 'Diversification & Growth',   done: false, icon: '🌐', desc: 'Exploring business opportunities across Indonesia, strengthening strategic partnerships with the Government, and developing broader business potential.' },
+        { year: '2008',  title: 'Company Establishment',           done: true,  icon: '🏗️', desc: 'PT Perta-Samtan Gas was officially established on 7 May 2008. Owned 66% by PT Pertamina Gas and 34% by ST International Ltd. to produce LPG supporting the Government\'s fuel conversion programme.' },
+        { year: '2010',  title: 'Share Transfer & Plant Construction', done: true, icon: '🤝', desc: 'E1 Corporation transferred its share ownership to Samtan Co., Ltd. Construction of the South Sumatra NGL Plant was carried out by EPCC contractor PT Tripatra Engineers & Constructors in July 2010.' },
+        { year: '2011',  title: 'Company Renamed',                   done: true,  icon: '📝', desc: 'The company was renamed from PT E1-Pertagas to PT Perta-Samtan Gas on 28 January 2011.' },
+        { year: '2012',  title: 'NGL Plant Inauguration',            done: true,  icon: '🎖️', desc: 'Inauguration of the South Sumatra NGL Plant on 6 December 2012 by President of the Republic of Indonesia Susilo Bambang Yudhoyono.' },
+        { year: '2013',  title: 'Commercial Phase',                  done: true,  icon: '🚀', desc: 'PT Perta-Samtan Gas entered the commercial phase starting 1 May 2013.' },
+        { year: '2014',  title: '100,000 Metric Tons of LPG',        done: true,  icon: '📦', desc: 'Successfully delivered 100,000 metric tons of LPG for domestic gas needs (southern Sumatra) via pipeline.' },
+        { year: '2016',  title: 'Head Office Relocation',            done: true,  icon: '🏢', desc: 'Relocation of PT Perta-Samtan Gas head office to the Banyuasin Fractionation Plant.' },
+        { year: '2018',  title: '1 Million Tonnes of LPG',           done: true,  icon: '🏆', desc: 'Successfully produced 1 million tonnes of LPG from the commercial phase through 2026 — a historic milestone in the company\'s journey.' },
+        { year: '2019',  title: 'Shareholder Name Change',           done: true,  icon: '🔄', desc: 'Samtan Co. Ltd. was renamed ST International Corporation on 7 December 2019.' },
+        { year: '2023',  title: '12" Jumper Line',                   done: true,  icon: '🔧', desc: 'PT Perta-Samtan Gas completed the 12" Jumper Line construction project at SKG 10, with commissioning on 26 August 2023.' },
+        { year: '2026', title: 'Diversification & Growth',          done: false, icon: '🌐', desc: 'Exploring business opportunities across Indonesia, strengthening strategic partnerships with the Government, and developing broader business potential.' },
       ],
     },
 

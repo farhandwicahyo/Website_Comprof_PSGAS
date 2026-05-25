@@ -65,7 +65,9 @@ function StepCard({ step, inView, index, animate = true }) {
           <Icon size={18} strokeWidth={1.75} style={{ color: accent }} />
         </div>
         <div className="min-w-0 pt-0.5">
-          <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-gray-400 leading-none mb-1">{sub}</p>
+          {sub ? (
+            <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-gray-400 leading-none mb-1">{sub}</p>
+          ) : null}
           <h3
             className="font-extrabold text-[13px] leading-tight"
             style={{ color: accent }}
@@ -75,27 +77,23 @@ function StepCard({ step, inView, index, animate = true }) {
         </div>
       </div>
 
-      {/* Gradient divider */}
-      <div
-        className="h-px mb-3 rounded-full"
-        style={{ background: `linear-gradient(to right,${accent}50,transparent)` }}
-      />
-
       {/* Description */}
-      <p className="text-gray-500 text-[11px] leading-relaxed mb-3">{desc}</p>
+      <p className={`text-gray-500 text-[11px] leading-relaxed ${output ? 'mb-3' : ''}`}>{desc}</p>
 
       {/* Output badge */}
-      <div
-        className="inline-flex items-center gap-1.5 text-[10px] font-bold px-2.5 py-1 rounded-lg"
-        style={{
-          background: `${accent}12`,
-          color: accent,
-          border: `1px solid ${accent}28`,
-        }}
-      >
-        <span className="opacity-50">↳</span>
-        {output}
-      </div>
+      {output ? (
+        <div
+          className="inline-flex items-center gap-1.5 text-[10px] font-bold px-2.5 py-1 rounded-lg"
+          style={{
+            background: `${accent}12`,
+            color: accent,
+            border: `1px solid ${accent}28`,
+          }}
+        >
+          <span className="opacity-50">↳</span>
+          {output}
+        </div>
+      ) : null}
     </Wrapper>
   );
 }

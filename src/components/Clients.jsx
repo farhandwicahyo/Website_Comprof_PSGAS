@@ -128,7 +128,7 @@ function AwardCarousel({ awards }) {
                 <img
                   src={a.img}
                   alt={a.title}
-                  className="absolute inset-0 w-full h-full object-cover object-center"
+                  className="absolute inset-0 w-full h-full object-contain object-center bg-gray-50 p-2"
                   loading="lazy"
                   decoding="async"
                 />

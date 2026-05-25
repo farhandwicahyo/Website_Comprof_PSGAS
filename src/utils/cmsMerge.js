@@ -81,11 +81,13 @@ function mapProcessSteps(cmsSteps, fallbackSteps) {
   if (!Array.isArray(cmsSteps) || !cmsSteps.length) return fallbackSteps;
   return cmsSteps.map((s, i) => {
     const fb = fallbackSteps[i] ?? {};
+    let output = String(s.meta ?? fb.output ?? '').trim();
+    if (/domestik/i.test(output)) output = output.replace(/\s*·\s*PSO.*$/i, '').trim();
     return {
       title: s.title ?? fb.title,
-      sub: s.meta ?? fb.sub,
+      sub: fb.sub ?? '',
       desc: s.desc ?? fb.desc,
-      output: s.meta ?? fb.output,
+      output,
     };
   });
 }

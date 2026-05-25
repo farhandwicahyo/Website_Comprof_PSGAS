@@ -4,7 +4,7 @@ import { defaultContent } from '../data/defaultContent';
 const STORAGE_KEY = 'psg_content_v1';
 
 /** Naikkan angka ini setiap defaultContent.js diubah agar cache browser ikut refresh. */
-export const CONTENT_VERSION = 7;
+export const CONTENT_VERSION = 13;
 
 /**
  * Deep merge: values from `stored` override `defaults`,
@@ -48,6 +48,83 @@ function isOperationalPlant(f) {
   const text = `${f?.title ?? ''} ${f?.label ?? ''}`;
   if (REMOVED_FACILITY_RE.test(text)) return false;
   return /ekstraksi|extraction|fraksinasi|fractionation/i.test(text);
+}
+
+function sanitizeProcessSteps(steps) {
+  if (!Array.isArray(steps)) return steps;
+  const patches = [
+    { meta: '', desc: 'Gas alam dari PT Pertamina Hulu Rokan Regional 1 Zona 4.' },
+    null,
+    null,
+    { meta: '710 MT/Hari' },
+    { meta: 'Domestik' },
+  ];
+  return steps.map((s, i) => {
+    const patch = patches[i];
+    if (!patch) return s;
+    return { ...s, ...patch };
+  });
+}
+
+function sanitizeProducts(products) {
+  if (!Array.isArray(products)) return products;
+  return products.map((p) => {
+    if (!/lpg\s*mixed/i.test(String(p?.title ?? ''))) return p;
+    const desc = String(p.desc ?? '').replace(/\s*untuk memenuhi kebutuhan domestik nasional\s*\(PSO\)\.?/i, '.').replace(/\s*to meet national domestic demand\s*\(PSO\)\.?/i, '.');
+    return { ...p, desc };
+  });
+}
+
+function sanitizeMilestones(milestones) {
+  const defaults = defaultContent.milestones;
+  if (!defaults?.length) return milestones;
+  if (!Array.isArray(milestones)) return defaults;
+  const has2010 = milestones.some((m) => String(m?.year) === '2010');
+  const stale =
+    milestones.length !== defaults.length ||
+    !has2010 ||
+    milestones.some((m) => /Proper Hijau|Patra Nirbaya/i.test(String(m?.title ?? '')));
+  if (stale) return defaults;
+  return milestones.map((m) => {
+    let year = String(m.year ?? '');
+    if (year === '2026+') year = '2026';
+    let desc = String(m.desc ?? '');
+    desc = desc.replace(/PT Pertamina Gas Negara\s*&/i, 'PT Pertamina Gas dan');
+    desc = desc.replace(/PT Pertamina Gas Negara and/i, 'PT Pertamina Gas and');
+    const next = year !== m.year || desc !== m.desc ? { ...m, year, desc } : m;
+    return next;
+  });
+}
+
+function sortAwardsLikeDefaults(awards) {
+  if (!Array.isArray(awards) || !defaultContent.awards?.length) return awards;
+  const order = defaultContent.awards.map((a) => a.title);
+  const sorted = [...awards].sort(
+    (a, b) => order.indexOf(a.title) - order.indexOf(b.title),
+  );
+  const known = sorted.filter((a) => order.includes(a.title));
+  const extra = awards.filter((a) => !order.includes(a.title));
+  return [...known, ...extra];
+}
+
+function withoutEsdmPartner(partners) {
+  if (!Array.isArray(partners)) return partners;
+  const filtered = partners.filter(
+    (p) => !/kementerian\s*esdm|kementrian_esdm/i.test(String(p?.name ?? '') + String(p?.logo ?? '')),
+  );
+  return filtered.length === partners.length ? partners : filtered;
+}
+
+function sanitizePartners(partners) {
+  return withoutEsdmPartner(partners);
+}
+
+function sanitizeAwards(awards) {
+  if (!Array.isArray(awards)) return defaultContent.awards;
+  const hasSertifikat = awards.some((a) => String(a?.img ?? '').includes('/sertifikat/'));
+  const hasUnsplash = awards.some((a) => String(a?.img ?? '').includes('unsplash'));
+  if (hasUnsplash || !hasSertifikat) return defaultContent.awards;
+  return sortAwardsLikeDefaults(awards);
 }
 
 function withOperationalFacilitiesOnly(data) {
@@ -107,10 +184,20 @@ function withOurContributeNav(data) {
 
 function sanitizeContent(data) {
   let next = { ...data, _contentVersion: CONTENT_VERSION };
-  const products = withoutLeanGas(next.products);
-  if (products !== next.products) next = { ...next, products };
+  const noLeanGas = withoutLeanGas(next.products);
+  if (noLeanGas !== next.products) next = { ...next, products: noLeanGas };
   const withFac = withOperationalFacilitiesOnly(next);
   if (withFac !== next) next = withFac;
+  const process = sanitizeProcessSteps(next.process);
+  if (process !== next.process) next = { ...next, process };
+  const productsClean = sanitizeProducts(next.products);
+  if (productsClean !== next.products) next = { ...next, products: productsClean };
+  const milestones = sanitizeMilestones(next.milestones);
+  if (milestones !== next.milestones) next = { ...next, milestones };
+  const awardsClean = sanitizeAwards(next.awards);
+  if (awardsClean !== next.awards) next = { ...next, awards: awardsClean };
+  const partnersClean = sanitizePartners(next.partners);
+  if (partnersClean !== next.partners) next = { ...next, partners: partnersClean };
   const withNav = withOurContributeNav(next);
   if (withNav !== next) next = withNav;
   const withCsr = withCsrContributePhotos(next);
@@ -122,6 +209,9 @@ function sanitizeContent(data) {
 function migrateFromDefaults(stored) {
   return sanitizeContent({
     ...defaultContent,
+    milestones: defaultContent.milestones,
+    awards: defaultContent.awards,
+    partners: defaultContent.partners,
     news: Array.isArray(stored?.news) && stored.news.length ? stored.news : defaultContent.news,
   });
 }

@@ -7,8 +7,15 @@ export default function Roadmap() {
   const MILESTONES = t('roadmap.milestones');
 
   return (
-    <section id="roadmap" className="py-12 lg:py-16 section-light" ref={ref}>
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="roadmap" className="relative py-12 lg:py-16 bg-psg-light overflow-x-clip" ref={ref}>
+      <img
+        src="/Kilang_Fraksinasi_Sungai_Gerong.JPG"
+        alt=""
+        aria-hidden
+        className="absolute inset-0 w-full h-full object-cover object-center opacity-[0.06] pointer-events-none"
+      />
+
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="text-center mb-10">
@@ -22,7 +29,7 @@ export default function Roadmap() {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-[28px] lg:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-psg-blue via-psg-blue/50 to-gray-200 lg:-translate-x-px" />
+          <div className="absolute left-[26px] sm:left-[27px] lg:left-1/2 top-0 bottom-0 w-[3px] sm:w-1 rounded-full bg-gradient-to-b from-psg-blue via-psg-blue/60 to-psg-blue/25 lg:-translate-x-1/2" />
 
           <div className="space-y-6">
             {MILESTONES.map((m, i) => {
@@ -35,7 +42,7 @@ export default function Roadmap() {
                 >
                   {/* Card */}
                   <div className={`ml-14 lg:ml-0 flex-1 lg:w-[calc(50%-40px)] ${isRight ? 'lg:pr-14' : 'lg:pl-14'}`}>
-                    <div className={`card p-6 ${m.done ? 'border-l-4 border-l-psg-blue' : 'border-l-4 border-l-gray-200'}`}>
+                    <div className={`card p-6 bg-white/95 backdrop-blur-[2px] ${m.done ? 'border-l-4 border-l-psg-blue' : 'border-l-4 border-l-gray-200'}`}>
                       <div className="flex items-center gap-3 mb-3">
                         <span className="text-xl">{m.icon}</span>
                         {m.year !== '—' && (
@@ -74,7 +81,7 @@ export default function Roadmap() {
         </div>
 
         {/* Trophy CTA */}
-        <div className="anim mt-16 bg-psg-navy rounded-2xl p-8 lg:p-10 flex flex-col sm:flex-row items-center gap-6" style={{ transitionDelay: '580ms' }}>
+        <div className="anim mt-16 bg-psg-navy/95 backdrop-blur-sm rounded-2xl p-8 lg:p-10 flex flex-col sm:flex-row items-center gap-6 shadow-section" style={{ transitionDelay: '580ms' }}>
           <div className="w-16 h-16 bg-psg-red/20 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">🏆</div>
           <div className="flex-1 text-center sm:text-left">
             <h3 className="text-white font-extrabold text-xl mb-1">{t('roadmap.ctaHeading')}</h3>

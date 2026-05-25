@@ -40,7 +40,7 @@ export default function EditRoadmap() {
             Milestone ditampilkan dalam timeline vertikal (zigzag di desktop). Isi{' '}
             <strong>Tahun</strong> dengan angka (cth: <code className="bg-blue-100 px-1 rounded">2008</code>) atau tanda{' '}
             <code className="bg-blue-100 px-1 rounded">—</code> untuk penghargaan tanpa tahun spesifik.
-            Gunakan <code className="bg-blue-100 px-1 rounded">2026+</code> untuk rencana ke depan.
+            Tahun ditampilkan penuh di timeline (mis. <code className="bg-blue-100 px-1 rounded">2026</code>).
           </p>
         </div>
       </div>
@@ -56,7 +56,7 @@ export default function EditRoadmap() {
               label="Tahun"
               value={item.year}
               onChange={v => setItem(i, 'year', v)}
-              placeholder="2008 atau — atau 2026+"
+              placeholder="2008 atau 2026"
             />
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-1">Ikon Emoji</label>
