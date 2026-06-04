@@ -1,96 +1,90 @@
 import { useScrollAnimationMultiple } from '../hooks/useScrollAnimation';
+import { useContent } from '../context/ContentContext';
 import { useLanguage } from '../context/LanguageContext';
+import IdRichText from './IdRichText';
 
-function CheckIcon() {
-  return (
-    <div className="w-4 h-4 rounded bg-psg-blue/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-      <svg viewBox="0 0 12 12" className="w-2.5 h-2.5 fill-psg-blue" aria-hidden>
-        <path d="M10 3L5 8.5 2 5.5l1-1 2 2 4-4.5 1 1z" />
-      </svg>
-    </div>
-  );
-}
+const DEFAULT_HERO_IMAGE = '/Kilang_Fraksinasi_Sungai_Gerong.JPG';
 
-function ObjectiveCard({ label, children }) {
+function VmCard({ label, children }) {
   return (
-    <div className="flex items-start gap-2 rounded-lg bg-psg-light/80 border border-psg-border/60 px-3 py-2.5">
-      <CheckIcon />
-      <div className="min-w-0">
-        {label && (
-          <span className="block text-[10px] font-bold uppercase tracking-[0.12em] text-psg-navy mb-0.5">
-            {label}
-          </span>
-        )}
-        <span className="text-xs text-gray-600 leading-snug">{children}</span>
-      </div>
+    <div className="rounded-xl bg-white px-5 py-4 shadow-lg shadow-black/20">
+      <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-psg-blue mb-2">{label}</p>
+      <p className="text-sm text-gray-700 leading-relaxed">
+        {typeof children === 'string' ? <IdRichText text={children} /> : children}
+      </p>
     </div>
   );
 }
 
 export default function About() {
   const ref = useScrollAnimationMultiple();
+  const { content } = useContent();
   const { t } = useLanguage();
   const ab = t('about');
+  const heroImage = content.about?.heroImage || DEFAULT_HERO_IMAGE;
 
   return (
-    <section id="tentang" className="py-12 lg:py-16 section-white" ref={ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 lg:items-stretch">
+    <section id="tentang" ref={ref} className="relative overflow-hidden">
+      <img
+        src={heroImage}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover object-center"
+        aria-hidden
+      />
+      <div
+        className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/35 lg:to-black/25"
+        aria-hidden
+      />
 
-          {/* Left — teks, visi misi & tujuan */}
-          <div>
-            <div className="anim">
-              <span className="section-label">{ab.eyebrow}</span>
-            </div>
-            <h2 className="anim section-heading mb-4" style={{ transitionDelay: '80ms' }}>
-              {ab.heading}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
+        <div className="lg:grid lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,380px)] lg:gap-10 xl:gap-14 lg:items-center">
+          {/* Kiri — judul & narasi profil */}
+          <div className="anim mb-8 lg:mb-0">
+            <p className="text-white/85 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+              {ab.eyebrow}
+            </p>
+            <h2 className="text-white text-4xl sm:text-[2.75rem] lg:text-5xl font-bold leading-[1.1] tracking-tight mb-3">
+              {ab.heroTitle}
             </h2>
-
-            <p className="anim text-gray-500 text-sm leading-relaxed mb-3 text-justify" style={{ transitionDelay: '140ms' }}>
-              {ab.body1}
+            <p className="text-white/75 text-base sm:text-lg font-medium mb-5">{ab.heading}</p>
+            {ab.intro && (
+              <p className="text-white/95 text-base sm:text-lg leading-relaxed mb-4 max-w-xl">
+                <IdRichText text={ab.intro} />
+              </p>
+            )}
+            <p className="text-white/90 text-sm sm:text-base leading-relaxed mb-3 max-w-xl text-justify">
+              <IdRichText text={ab.body1} />
             </p>
-            <p className="anim text-gray-500 text-sm leading-relaxed mb-5 text-justify" style={{ transitionDelay: '180ms' }}>
-              {ab.body2}
+            <p className="text-white/85 text-sm sm:text-base leading-relaxed max-w-xl text-justify">
+              <IdRichText text={ab.body2} />
             </p>
-
-            <div className="anim mb-5" style={{ transitionDelay: '220ms' }}>
-              <h3 className="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-3">
-                {ab.visionMissionHeading}
-              </h3>
-              <div className="grid sm:grid-cols-2 gap-2">
-                <ObjectiveCard label={ab.visionLabel}>{ab.vision}</ObjectiveCard>
-                <ObjectiveCard label={ab.missionLabel}>{ab.mission}</ObjectiveCard>
-              </div>
-            </div>
-
-            <div className="anim" style={{ transitionDelay: '280ms' }}>
-              <h3 className="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-3">
-                {ab.objectivesHeading}
-              </h3>
-              <div className="grid sm:grid-cols-2 gap-2">
-                {ab.objectives.map((obj, i) => (
-                  <ObjectiveCard key={i}>{obj}</ObjectiveCard>
-                ))}
-              </div>
-            </div>
           </div>
 
-          {/* Right — foto memenuhi tinggi kolom */}
-          <div className="anim-r flex h-full min-h-[280px]" style={{ transitionDelay: '100ms' }}>
-            <div className="relative w-full h-full min-h-[280px] lg:min-h-full rounded-xl overflow-hidden img-zoom shadow-section">
-              <img
-                src="/Kilang_Fraksinasi_Sungai_Gerong.JPG"
-                alt={ab.facilityLabel}
-                className="absolute inset-0 w-full h-full object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-psg-navy/75 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 px-4 py-3">
-                <div className="text-white font-semibold text-sm leading-tight">{ab.facilityLabel}</div>
-              </div>
-            </div>
+          {/* Kanan — visi & misi */}
+          <div className="anim flex flex-col gap-3 sm:gap-4" style={{ transitionDelay: '100ms' }}>
+            <VmCard label={ab.visionLabel}>{ab.vision}</VmCard>
+            <VmCard label={ab.missionLabel}>{ab.mission}</VmCard>
           </div>
-
         </div>
+
+        {ab.objectives?.length > 0 && (
+          <div
+            className="anim mt-8 lg:mt-10 rounded-xl border border-white/15 bg-black/30 backdrop-blur-sm px-5 py-4 sm:px-6 sm:py-5"
+            style={{ transitionDelay: '160ms' }}
+          >
+            <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-white/65 mb-3">
+              {ab.objectivesHeading}
+            </p>
+            <ul className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-2.5 text-sm text-white/90 leading-snug">
+              {ab.objectives.map((obj, i) => (
+                <li key={i} className="flex gap-2">
+                  <span className="text-psg-green font-bold flex-shrink-0" aria-hidden>·</span>
+                  <span><IdRichText text={obj} /></span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </section>
   );

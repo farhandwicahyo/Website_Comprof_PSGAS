@@ -69,7 +69,7 @@ function StepCard({ step, inView, index, animate = true }) {
             <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-gray-400 leading-none mb-1">{sub}</p>
           ) : null}
           <h3
-            className="font-extrabold text-[13px] leading-tight"
+            className="font-bold text-[13px] leading-tight"
             style={{ color: accent }}
           >
             {title}
@@ -173,7 +173,7 @@ export default function Process() {
           <motion.h2
             initial={{ opacity: 0, y: 16 }} animate={headerInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl sm:text-4xl font-extrabold text-psg-navy leading-tight mb-3"
+            className="text-3xl sm:text-4xl font-bold text-psg-navy leading-tight mb-3"
           >
             {pr.heading}
           </motion.h2>
@@ -316,7 +316,7 @@ export default function Process() {
           <div className="bg-white grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-gray-100">
             {STATS.map(item => (
               <div key={item.label} className={`px-6 py-5 ${item.hi ? 'bg-psg-light' : ''}`}>
-                <div className={`text-2xl font-extrabold mb-0.5 ${item.hi ? 'text-psg-blue' : 'text-psg-navy'}`}>
+                <div className={`text-2xl font-bold mb-0.5 ${item.hi ? 'text-psg-blue' : 'text-psg-navy'}`}>
                   {item.val}
                   <span className={`text-sm font-semibold ml-1.5 ${item.hi ? 'text-psg-blue/60' : 'text-gray-400'}`}>
                     {item.unit}

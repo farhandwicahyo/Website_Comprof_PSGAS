@@ -8,6 +8,8 @@ export const defaultContent = {
 
   /* ── Navbar ── */
   navbar: {
+    logoUrl: '/logo.png',
+    logoMarkUrl: '/logo-web.png',
     brandName: 'Perta-Samtan',
     brandSub: 'GAS',
     topStrip: 'PT Perta-Samtan Gas — Harmony World Class',
@@ -34,7 +36,7 @@ export const defaultContent = {
     roadmap: { visible: true, label: 'Roadmap / Pencapaian' },
     contribute: { visible: true, label: 'Kontribusi Kami' },
     news: { visible: false, label: 'Berita' },
-    clients: { visible: true, label: 'Mitra & Penghargaan' },
+    clients: { visible: true, label: 'Penghargaan' },
   },
 
   hero: {
@@ -68,6 +70,9 @@ export const defaultContent = {
   ],
 
   about: {
+    heroImage: '/Kilang_Fraksinasi_Sungai_Gerong.JPG',
+    intro:
+      'PT Perta-Samtan Gas memproduksi LPG dan mengolah gas bumi melalui dua kilang terintegrasi di Prabumulih dan Banyuasin, Sumatera Selatan, untuk mendukung ketahanan energi nasional.',
     heading: 'PT Perta-Samtan Gas',
     body1:
       'PT Perta-Samtan Gas didirikan pada 7 Mei 2008 dengan tujuan memproduksi LPG (Liquified Petroleum Gas) guna mendukung program Pemerintah dalam rangka konversi minyak tanah ke LPG serta penyediaan energi bagi masyarakat, sekaligus mengurangi beban Pemerintah dalam subsidi BBM.',
@@ -78,7 +83,7 @@ export const defaultContent = {
       'Memberikan nilai tambah bagi Pemegang Saham, Karyawan, dan Masyarakat Indonesia melalui efisiensi kerja dan daya saing yang tinggi.',
     objectives: [
       'Ekstraksi dan pemrosesan gas alam menjadi LPG dan produk gas lainnya',
-      'Niaga dan distribusi LPG untuk memenuhi program Public Service Obligation (PSO)',
+      'Niaga dan distribusi LPG untuk memenuhi kebutuhan energi domestik nasional',
       'Optimalisasi sumber daya dan fasilitas pemrosesan gas untuk layanan terbaik',
       'Penyediaan infrastruktur terkait sektor pemrosesan gas secara berkelanjutan',
     ],
@@ -349,14 +354,14 @@ Penghargaan Patra Nirbaya merupakan pengakuan tertinggi di sektor energi dan per
       icon: '🏗️',
       done: true,
       title: 'Pendirian Perseroan',
-      desc: 'PT Perta-Samtan Gas resmi didirikan pada 7 Mei 2008. Dimiliki 66% PT Pertamina Gas dan 34% ST International Ltd. untuk memproduksi LPG mendukung program konversi BBM pemerintah.',
+      desc: 'PT Perta-Samtan Gas resmi didirikan pada 7 Mei 2008, guna mendukung program pemerintah dalam konversi BBM ke LPG.',
     },
     {
       year: '2010',
       icon: '🤝',
       done: true,
       title: 'Alih Kepemilikan & Pembangunan Kilang',
-      desc: 'E1 Corporation mengalihkan kepemilikan sahamnya kepada Samtan Co., Ltd. Pembangunan Kilang NGL di Sumatera Selatan dilaksanakan oleh kontraktor EPCC, PT Tripatra Engineers & Constructors pada bulan Juli 2010.',
+      desc: 'E1-Corporation mengalihkan kepemilikan sahamnya kepada Samtan Co., Ltd. Pembangunan Kilang NGL di Sumatera Selatan dilaksanakan oleh kontraktor EPCC, PT Tripatra Engineers & Constructors pada bulan Juli 2010.',
     },
     {
       year: '2011',
@@ -370,7 +375,7 @@ Penghargaan Patra Nirbaya merupakan pengakuan tertinggi di sektor energi dan per
       icon: '🎖️',
       done: true,
       title: 'Peresmian Kilang NGL',
-      desc: 'Peresmian Kilang NGL di Sumatera Selatan pada tanggal 6 Desember 2012 oleh President RI Susilo Bambang Yudhoyono.',
+      desc: 'Peresmian Kilang NGL di Sumatera Selatan pada 6 Desember 2012 oleh Presiden Republik Indonesia Susilo Bambang Yudhoyono.',
     },
     {
       year: '2013',
@@ -391,7 +396,7 @@ Penghargaan Patra Nirbaya merupakan pengakuan tertinggi di sektor energi dan per
       icon: '🏢',
       done: true,
       title: 'Relokasi Kantor Pusat',
-      desc: 'Relokasi kantor pusat PT Perta-Samtan Gas ke Kilang Fraksinasi, Banyuasin.',
+      desc: 'Lokasi kantor pusat PT Perta-Samtan Gas yang pada awalnya berada di Jakarta direlokasi ke Kilang Fraksinasi, Banyuasin.',
     },
     {
       year: '2018',
@@ -412,14 +417,14 @@ Penghargaan Patra Nirbaya merupakan pengakuan tertinggi di sektor energi dan per
       icon: '🔧',
       done: true,
       title: 'Jumper Line 12"',
-      desc: 'PT Perta-Samtan Gas berhasil menyelesaikan proyek pembangunan Jumper Line 12" yang berlokasi di SKG 10 dimana telah melakukan commissioning pada tanggal 26 Agustus 2023.',
+      desc: 'PT Perta-Samtan Gas berhasil menyelesaikan proyek pembangunan Jumper Line 12" yang berlokasi di SKG 10 dan telah melakukan commissioning pada 26 Agustus 2023.',
     },
     {
       year: '2026',
-      icon: '🌐',
-      done: false,
-      title: 'Diversifikasi & Pertumbuhan',
-      desc: 'Eksplorasi peluang bisnis di seluruh Indonesia, penguatan kemitraan strategis dengan Pemerintah, dan pengembangan potensi bisnis yang lebih luas.',
+      icon: '🏆',
+      done: true,
+      title: '2,5 Juta Metrik Ton LPG',
+      desc: 'Pencapaian produksi kumulatif 2,5 juta metrik ton LPG sejak fase komersial 1 Mei 2013 hingga tahun 2026.',
     },
   ],
 
@@ -458,17 +463,27 @@ Penghargaan Patra Nirbaya merupakan pengakuan tertinggi di sektor energi dan per
   },
 
   contact: {
-    phone1: '+62-711 5740701 s.d. 5740704',
-    phone1Sub: 'Kantor Pusat, Banyuasin',
-    phone2: '021-57958218 / 57958219',
-    phone2Sub: 'Kantor Perwakilan Jakarta',
+    offices: [
+      {
+        label: 'Kantor Pusat / Kilang Fraksinasi',
+        address: 'Jl. No. 8 Komperta Banyuasin\nKab. Banyuasin, Sumatera Selatan 30962',
+        phone: '+62-711 5740701 s.d. 5740704',
+      },
+      {
+        label: 'Kilang Ekstraksi',
+        address: 'Komperta Prabumulih\nKota Prabumulih, Sumatera Selatan',
+        phone: '+62-736 521001',
+      },
+      {
+        label: 'Kantor Perwakilan',
+        address:
+          'The East Building lt.11-07, Jl. Dr. Ide Anak Agung Gde Agung Kav. E.3.2 No. 1\nKuningan Barat, Jakarta Selatan 12950',
+        phone: '021-57958218 / 57958219',
+      },
+    ],
     website: 'www.pertasamtan.com',
-    address: 'Jl. No. 8 Komperta Banyuasin',
-    addressSub: 'Kab. Banyuasin, Sumsel 30962',
-    liaisonAddress:
-      'The East Building lt.11-07, Jl. Dr. Ide Anak Agung Gde Agung Kav. E.3.2 No. 1, Kuningan Barat, Jakarta Selatan 12950',
     copyright: '© 2026 PT Perta-Samtan Gas. Hak Cipta Dilindungi Undang-Undang.',
-    showLiaisonStrip: true,
+    showLiaisonStrip: false,
     socialFacebook: '#',
     socialInstagram: '#',
     socialLinkedin: '#',

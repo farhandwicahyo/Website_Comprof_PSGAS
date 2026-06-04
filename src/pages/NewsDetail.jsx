@@ -83,7 +83,7 @@ export default function NewsDetail() {
             </nav>
 
             {/* Title */}
-            <h1 className="text-2xl sm:text-3xl lg:text-[2.2rem] font-black text-psg-navy leading-[1.2] mb-6">
+            <h1 className="text-2xl sm:text-3xl lg:text-[2.2rem] font-bold text-psg-navy leading-[1.2] mb-6">
               {article.title}
             </h1>
 

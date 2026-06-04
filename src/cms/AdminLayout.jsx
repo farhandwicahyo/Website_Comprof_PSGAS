@@ -54,7 +54,7 @@ export default function AdminLayout() {
       >
         {/* Logo */}
         <div className="flex items-center gap-3 px-4 py-3 border-b border-white/10">
-          <img src="/logo.png" alt="PSG" className="h-8 w-auto object-contain" />
+          <img src="/logo-web.png" alt="PSG" className="h-8 w-auto object-contain" />
           {/* <div>
             <p className="text-[11px] font-bold leading-tight">PT Perta-Samtan Gas</p>
             <p className="text-[9px] text-white/50 leading-tight">Admin CMS</p>

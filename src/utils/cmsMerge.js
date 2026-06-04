@@ -33,6 +33,8 @@ export function buildIdLocale(content) {
     },
     about: {
       ...base.about,
+      intro: about.intro ?? base.about.intro,
+      heroTitle: about.heroTitle ?? base.about.heroTitle,
       heading: about.heading ?? base.about.heading,
       body1: about.body1 ?? base.about.body1,
       body2: about.body2 ?? base.about.body2,

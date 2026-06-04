@@ -38,7 +38,12 @@ export const translations = {
     },
 
     about: {
-      eyebrow: 'Tentang Perusahaan',
+      eyebrow: 'Profil Perseroan',
+      heroTitle: 'Tentang Kami',
+      intro:
+        'PT Perta-Samtan Gas memproduksi LPG dan mengolah gas bumi melalui dua kilang terintegrasi di Prabumulih dan Banyuasin, Sumatera Selatan, untuk mendukung ketahanan energi nasional.',
+      btnReadMore: 'Baca Selengkapnya',
+      btnVision: 'Visi & Misi',
       heading: 'PT Perta-Samtan Gas',
       body1:
         'PT Perta-Samtan Gas didirikan pada 7 Mei 2008 dengan tujuan memproduksi LPG (Liquified Petroleum Gas) guna mendukung program Pemerintah dalam rangka konversi minyak tanah ke LPG serta penyediaan energi bagi masyarakat, sekaligus mengurangi beban Pemerintah dalam subsidi BBM.',
@@ -49,7 +54,7 @@ export const translations = {
         'Memberikan nilai tambah bagi Pemegang Saham, Karyawan, dan Masyarakat Indonesia melalui efisiensi kerja dan daya saing yang tinggi.',
       objectives: [
         'Ekstraksi dan pemrosesan gas alam menjadi LPG dan produk gas lainnya',
-        'Niaga dan distribusi LPG untuk memenuhi program Public Service Obligation (PSO)',
+        'Niaga dan distribusi LPG untuk memenuhi kebutuhan energi domestik nasional',
         'Optimalisasi sumber daya dan fasilitas pemrosesan gas untuk layanan terbaik',
         'Penyediaan infrastruktur terkait sektor pemrosesan gas secara berkelanjutan',
       ],
@@ -105,7 +110,7 @@ export const translations = {
         { label: 'Pipa NGL',         value: '8 inci · ±90 km' },
         { label: 'Output LPG',       value: '710 MT/hari (Propane + Butane)' },
         { label: 'Output Kondensat', value: '2.200 bbl/hari (Pentane+)' },
-        { label: 'Distribusi',       value: 'PSO — Pontianak, Bangka, Belitung' },
+        { label: 'Distribusi',       value: 'Pontianak, Bangka, Belitung' },
       ],
     },
 
@@ -159,7 +164,7 @@ export const translations = {
     products: {
       eyebrow: 'Output Produksi',
       heading: 'Produk Utama Perusahaan',
-      sub: 'Hasil olahan gas alam dari dua kilang terintegrasi yang mendukung program energi dan PSO nasional.',
+      sub: 'Hasil pengolahan gas alam kedua kilang yang terintegrasi digunakan untuk memenuhi kebutuhan LPG domestik.',
       excellenceHeading: 'Keunggulan Perseroan',
       excellence: [
         { title: 'Keunggulan Operasional', desc: 'Konsisten mencapai produktivitas, stabilitas, dan efisiensi tinggi dengan rekam jejak keberhasilan sejak fase komersial 1 Mei 2013.' },
@@ -177,18 +182,31 @@ export const translations = {
 
     whyus: {
       eyebrow: 'Nilai & Keunggulan',
-      heading: 'Tata Nilai Perseroan',
-      sub: 'Dengan tata nilai AKHLAK, budaya HSSE, dan rekam jejak operasional yang kuat — PT Perta-Samtan Gas menjadi mitra energi terpercaya bagi Indonesia.',
+      heading: 'PSGAS',
+      sub: 'Lima pilar nilai PSGAS — Profesional, Safety, Good Governance, Achieve Profit, dan Satisfied Customer — menjadi pedoman perilaku dan pengambilan keputusan kami dalam menjalankan operasi kilang, melayani pemangku kepentingan, serta mendukung ketahanan energi nasional.',
       hsseEyebrow: 'Budaya Keselamatan',
       hsseHeading: 'HSSE Golden Rules',
       values: [
-        { no: '01', title: 'Profesional',           desc: 'Berkomitmen dalam perbaikan diri berkelanjutan dan memiliki profesionalisme tinggi dalam setiap aspek kerja.' },
-        { no: '02', title: 'HSSE',                   desc: 'Fokus pada keselamatan kerja, keselamatan proses, kesehatan, keamanan, dan lingkungan dalam setiap aktivitas operasional.' },
-        { no: '03', title: 'Tata Kelola Perusahaan', desc: 'Menerapkan prinsip-prinsip Good Corporate Governance (GCG) yang transparan, akuntabel, dan bertanggung jawab.' },
-        { no: '04', title: 'Achieve Profit',         desc: 'Menghasilkan nilai ekonomi tinggi demi keberlangsungan Perseroan bagi Pemegang Saham dan Pemangku Kepentingan.' },
-        { no: '05', title: 'Kepuasan Pelanggan',     desc: 'Berkomitmen penuh terhadap kepuasan pelanggan melalui layanan prima dan produk berkualitas tinggi.' },
-        { no: '06', title: 'Budaya AKHLAK',          desc: 'Menerapkan nilai Amanah, Kompeten, Harmonis, Loyal, Adaptif, dan Kolaboratif dalam setiap interaksi organisasi.' },
+        { no: 'P', title: 'Profesional', desc: 'Berkomitmen dalam perbaikan diri berkelanjutan dan memiliki profesionalisme tinggi dalam setiap aspek kerja.' },
+        { no: 'S', title: 'Safety', desc: 'Fokus pada keselamatan kerja, keselamatan proses, kesehatan, keamanan, dan lingkungan (HSSE) dalam setiap aktivitas operasional.' },
+        { no: 'G', title: 'Good Governance', desc: 'Menerapkan prinsip-prinsip Good Corporate Governance (GCG) yang transparan, akuntabel, dan bertanggung jawab.' },
+        { no: 'A', title: 'Achieve Profit', desc: 'Menghasilkan nilai ekonomi tinggi demi keberlangsungan Perseroan bagi Pemegang Saham dan Pemangku Kepentingan.' },
+        { no: 'S', title: 'Satisfied Customer', desc: 'Berkomitmen penuh terhadap kepuasan pelanggan melalui layanan prima dan produk berkualitas tinggi.' },
       ],
+      onePertamina: {
+        title: 'One Pertamina',
+        groupLabel: 'Pertamina Group',
+        mascotAlt: 'Maskot pekerja Pertamina',
+        desc: 'Semangat kesatuan seluruh entitas Pertamina Group untuk sinergi, kolaborasi aktif, dan peningkatan kinerja menyeluruh demi mendukung ketahanan energi nasional.',
+        pillars: [
+          { title: 'Kolaboratif', desc: 'Membangun kerja sama sinergis dan memberikan nilai tambah bagi perusahaan serta pemangku kepentingan.' },
+          { title: 'Disiplin', desc: 'Patuh pada prosedur, peraturan, dan komitmen kerja demi tercapainya target kinerja.' },
+          { title: 'Integritas', desc: 'Menjunjung tinggi kejujuran, etika, dan tanggung jawab dalam setiap tindakan.' },
+          { title: 'Inovatif', desc: 'Terus berinovasi dan beradaptasi menghadapi perubahan bisnis dan teknologi.' },
+          { title: 'Fokus Pelanggan', desc: 'Mengutamakan kepuasan pelanggan melalui layanan dan produk berkualitas.' },
+          { title: 'Tanggung Jawab Sosial & Lingkungan', desc: 'Berkontribusi pada pembangunan berkelanjutan dan pengelolaan lingkungan yang bertanggung jawab.' },
+        ],
+      },
       goldenRules: [
         { title: 'Patuh',       desc: 'Mematuhi seluruh prosedur, peraturan, dan standar keselamatan tanpa kompromi di setiap aktivitas kerja.' },
         { title: 'Peduli',      desc: 'Peduli terhadap keselamatan diri sendiri, rekan kerja, serta lingkungan sekitar area operasional.' },
@@ -206,17 +224,17 @@ export const translations = {
       ctaSub: 'Sejak fase komersial 1 Mei 2013 hingga tahun 2026 — pencapaian bersejarah yang membuktikan kapabilitas operasional PT Perta-Samtan Gas dalam mendukung ketahanan energi nasional.',
       ctaBtn: 'Hubungi Kami',
       milestones: [
-        { year: '2008',  title: 'Pendirian Perseroan',              done: true,  icon: '🏗️', desc: 'PT Perta-Samtan Gas resmi didirikan pada 7 Mei 2008. Dimiliki 66% PT Pertamina Gas dan 34% ST International Ltd. untuk memproduksi LPG mendukung program konversi BBM pemerintah.' },
-        { year: '2010',  title: 'Alih Kepemilikan & Pembangunan Kilang', done: true, icon: '🤝', desc: 'E1 Corporation mengalihkan kepemilikan sahamnya kepada Samtan Co., Ltd. Pembangunan Kilang NGL di Sumatera Selatan dilaksanakan oleh kontraktor EPCC, PT Tripatra Engineers & Constructors pada bulan Juli 2010.' },
+        { year: '2008',  title: 'Pendirian Perseroan',              done: true,  icon: '🏗️', desc: 'PT Perta-Samtan Gas resmi didirikan pada 7 Mei 2008, guna mendukung program pemerintah dalam konversi BBM ke LPG.' },
+        { year: '2010',  title: 'Alih Kepemilikan & Pembangunan Kilang', done: true, icon: '🤝', desc: 'E1-Corporation mengalihkan kepemilikan sahamnya kepada Samtan Co., Ltd. Pembangunan Kilang NGL di Sumatera Selatan dilaksanakan oleh kontraktor EPCC, PT Tripatra Engineers & Constructors pada bulan Juli 2010.' },
         { year: '2011',  title: 'Perubahan Nama Perusahaan',        done: true,  icon: '📝', desc: 'Perubahan nama Perusahaan dari PT E1-Pertagas menjadi PT Perta-Samtan Gas pada tanggal 28 Januari 2011.' },
-        { year: '2012',  title: 'Peresmian Kilang NGL',             done: true,  icon: '🎖️', desc: 'Peresmian Kilang NGL di Sumatera Selatan pada tanggal 6 Desember 2012 oleh President RI Susilo Bambang Yudhoyono.' },
+        { year: '2012',  title: 'Peresmian Kilang NGL',             done: true,  icon: '🎖️', desc: 'Peresmian Kilang NGL di Sumatera Selatan pada 6 Desember 2012 oleh Presiden Republik Indonesia Susilo Bambang Yudhoyono.' },
         { year: '2013',  title: 'Fase Komersial',                   done: true,  icon: '🚀', desc: 'Kilang PT Perta-Samtan Gas memasuki fase komersial mulai 1 Mei 2013.' },
         { year: '2014',  title: '100.000 Metrik Ton LPG',           done: true,  icon: '📦', desc: 'Berhasil melakukan pengiriman 100.000 Metrik Ton LPG untuk keperluan gas domestik (Sumatera bagian Selatan) melalui pipa.' },
-        { year: '2016',  title: 'Relokasi Kantor Pusat',            done: true,  icon: '🏢', desc: 'Relokasi kantor pusat PT Perta-Samtan Gas ke Kilang Fraksinasi, Banyuasin.' },
+        { year: '2016',  title: 'Relokasi Kantor Pusat',            done: true,  icon: '🏢', desc: 'Lokasi kantor pusat PT Perta-Samtan Gas yang pada awalnya berada di Jakarta direlokasi ke Kilang Fraksinasi, Banyuasin.' },
         { year: '2018',  title: '1 Juta Ton LPG',                   done: true,  icon: '🏆', desc: 'Berhasil memproduksi 1 juta ton LPG sejak masa komersial hingga tahun 2026 — tonggak bersejarah dalam perjalanan perusahaan.' },
         { year: '2019',  title: 'Perubahan Pemegang Saham',         done: true,  icon: '🔄', desc: 'Perubahan nama Samtan Co.Ltd., menjadi ST International Corporation pada tanggal 7 Desember 2019.' },
-        { year: '2023',  title: 'Jumper Line 12"',                  done: true,  icon: '🔧', desc: 'PT Perta-Samtan Gas berhasil menyelesaikan proyek pembangunan Jumper Line 12" yang berlokasi di SKG 10 dimana telah melakukan commissioning pada tanggal 26 Agustus 2023.' },
-        { year: '2026', title: 'Diversifikasi & Pertumbuhan',    done: false, icon: '🌐', desc: 'Eksplorasi peluang bisnis di seluruh Indonesia, penguatan kemitraan strategis dengan Pemerintah, dan pengembangan potensi bisnis yang lebih luas.' },
+        { year: '2023',  title: 'Jumper Line 12"',                  done: true,  icon: '🔧', desc: 'PT Perta-Samtan Gas berhasil menyelesaikan proyek pembangunan Jumper Line 12" yang berlokasi di SKG 10 dan telah melakukan commissioning pada 26 Agustus 2023.' },
+        { year: '2026', title: '2,5 Juta Metrik Ton LPG',          done: true,  icon: '🏆', desc: 'Pencapaian produksi kumulatif 2,5 juta metrik ton LPG sejak fase komersial 1 Mei 2013 hingga tahun 2026.' },
       ],
     },
 
@@ -254,7 +272,7 @@ export const translations = {
           links: [
             { l: 'Tentang Kami',          h: '#tentang' },
             { l: 'Visi & Misi',           h: '#tentang' },
-            { l: 'Tata Nilai (AKHLAK)',   h: '#kenapa'  },
+            { l: 'PSGAS',                 h: '#kenapa'  },
             { l: 'Pencapaian',            h: '#roadmap' },
             { l: 'Karir',                 h: '#'        },
           ],
@@ -275,12 +293,13 @@ export const translations = {
             { l: 'Produk LPG',      h: '#produk'     },
             { l: 'Our Contribution',  h: '#contribute' },
             { l: 'Penghargaan',     h: '#pelanggan'  },
-            { l: 'GCG',             h: '#'           },
             { l: 'Hubungi Kami',    h: '#kontak'     },
           ],
         },
       },
-      legal: ['Kebijakan Privasi', 'Syarat & Ketentuan', 'GCG', 'Sitemap'],
+      legal: ['Kebijakan Privasi', 'Syarat & Ketentuan', 'Sitemap'],
+      contactHeading: 'Hubungi Kami',
+      websiteLabel: 'Alamat web resmi',
     },
   },
 
@@ -321,7 +340,12 @@ export const translations = {
     },
 
     about: {
-      eyebrow: 'About the Company',
+      eyebrow: 'Company Profile',
+      heroTitle: 'About Us',
+      intro:
+        'PT Perta-Samtan Gas produces LPG and processes natural gas through two integrated plants in Prabumulih and Banyuasin, South Sumatra, supporting national energy resilience.',
+      btnReadMore: 'Read More',
+      btnVision: 'Vision & Mission',
       heading: 'PT Perta-Samtan Gas',
       body1:
         'PT Perta-Samtan Gas was established on 7 May 2008 with the objective of producing LPG (Liquefied Petroleum Gas) to support the Government\'s programme for converting kerosene to LPG and providing energy for the community, while reducing the Government\'s fuel subsidy burden.',
@@ -332,7 +356,7 @@ export const translations = {
         'To deliver added value to Shareholders, Employees, and the Indonesian people through high operational efficiency and competitiveness.',
       objectives: [
         'Extraction and processing of natural gas into LPG and other gas products',
-        'Trading and distribution of LPG to fulfil the Public Service Obligation (PSO) programme',
+        'Trading and distribution of LPG to meet national domestic energy needs',
         'Optimisation of resources and gas processing facilities for best-in-class service',
         'Sustainable provision of infrastructure related to the gas processing sector',
       ],
@@ -388,7 +412,7 @@ export const translations = {
         { label: 'NGL Pipeline',      value: '8-inch · ±90 km' },
         { label: 'LPG Output',        value: '710 MT/day (Propane + Butane)' },
         { label: 'Condensate Output', value: '2,200 bbl/day (Pentane+)' },
-        { label: 'Distribution',      value: 'PSO — Pontianak, Bangka, Belitung' },
+        { label: 'Distribution',      value: 'Pontianak, Bangka, Belitung' },
       ],
     },
 
@@ -442,7 +466,7 @@ export const translations = {
     products: {
       eyebrow: 'Production Output',
       heading: 'Main Company Products',
-      sub: 'Processed from natural gas at our two integrated plants, supporting national energy and PSO programmes.',
+      sub: 'Natural gas processed at our two integrated plants is used to meet domestic LPG demand.',
       excellenceHeading: 'Company Excellence',
       excellence: [
         { title: 'Operational Excellence', desc: 'Consistently achieving high productivity, stability, and efficiency with a proven track record since the commercial phase on 1 May 2013.' },
@@ -460,18 +484,31 @@ export const translations = {
 
     whyus: {
       eyebrow: 'Values & Excellence',
-      heading: 'Company Core Values',
-      sub: 'With AKHLAK values, HSSE culture, and a strong operational track record — PT Perta-Samtan Gas is a trusted energy partner for Indonesia.',
+      heading: 'PSGAS',
+      sub: 'The five PSGAS pillars — Professional, Safety, Good Governance, Achieve Profit, and Satisfied Customer — guide our behaviour and decision-making in plant operations, serving stakeholders, and supporting national energy resilience.',
       hsseEyebrow: 'Safety Culture',
       hsseHeading: 'HSSE Golden Rules',
       values: [
-        { no: '01', title: 'Professional',          desc: 'Committed to continuous self-improvement and maintaining high professionalism in every aspect of work.' },
-        { no: '02', title: 'HSSE',                  desc: 'Focused on occupational safety, process safety, health, security, and the environment in every operational activity.' },
-        { no: '03', title: 'Corporate Governance',  desc: 'Applying principles of transparent, accountable, and responsible Good Corporate Governance (GCG).' },
-        { no: '04', title: 'Achieve Profit',        desc: 'Generating high economic value to sustain the Company for Shareholders and Stakeholders.' },
-        { no: '05', title: 'Customer Satisfaction', desc: 'Fully committed to customer satisfaction through excellent service and high-quality products.' },
-        { no: '06', title: 'AKHLAK Culture',        desc: 'Applying the values of Trustworthy, Competent, Harmonious, Loyal, Adaptive, and Collaborative in every organisational interaction.' },
+        { no: 'P', title: 'Professional', desc: 'Committed to continuous self-improvement and maintaining high professionalism in every aspect of work.' },
+        { no: 'S', title: 'Safety', desc: 'Focused on occupational safety, process safety, health, security, and the environment (HSSE) in every operational activity.' },
+        { no: 'G', title: 'Good Governance', desc: 'Applying principles of transparent, accountable, and responsible Good Corporate Governance (GCG).' },
+        { no: 'A', title: 'Achieve Profit', desc: 'Generating high economic value to sustain the Company for Shareholders and Stakeholders.' },
+        { no: 'S', title: 'Satisfied Customer', desc: 'Fully committed to customer satisfaction through excellent service and high-quality products.' },
       ],
+      onePertamina: {
+        title: 'One Pertamina',
+        groupLabel: 'Pertamina Group',
+        mascotAlt: 'Pertamina field worker mascot',
+        desc: 'The spirit of unity across the Pertamina Group for synergy, active collaboration, and overall performance improvement in support of national energy resilience.',
+        pillars: [
+          { title: 'Collaborative', desc: 'Building synergistic cooperation and delivering added value for the company and stakeholders.' },
+          { title: 'Discipline', desc: 'Adhering to procedures, regulations, and work commitments to achieve performance targets.' },
+          { title: 'Integrity', desc: 'Upholding honesty, ethics, and accountability in every action.' },
+          { title: 'Innovative', desc: 'Continuously innovating and adapting to business and technological change.' },
+          { title: 'Customer Focus', desc: 'Prioritising customer satisfaction through quality service and products.' },
+          { title: 'Social & Environmental Responsibility', desc: 'Contributing to sustainable development and responsible environmental management.' },
+        ],
+      },
       goldenRules: [
         { title: 'Comply',    desc: 'Follow all procedures, regulations, and safety standards without compromise in every work activity.' },
         { title: 'Care',      desc: 'Care for the safety of yourself, colleagues, and the surrounding environment in operational areas.' },
@@ -499,7 +536,7 @@ export const translations = {
         { year: '2018',  title: '1 Million Tonnes of LPG',           done: true,  icon: '🏆', desc: 'Successfully produced 1 million tonnes of LPG from the commercial phase through 2026 — a historic milestone in the company\'s journey.' },
         { year: '2019',  title: 'Shareholder Name Change',           done: true,  icon: '🔄', desc: 'Samtan Co. Ltd. was renamed ST International Corporation on 7 December 2019.' },
         { year: '2023',  title: '12" Jumper Line',                   done: true,  icon: '🔧', desc: 'PT Perta-Samtan Gas completed the 12" Jumper Line construction project at SKG 10, with commissioning on 26 August 2023.' },
-        { year: '2026', title: 'Diversification & Growth',          done: false, icon: '🌐', desc: 'Exploring business opportunities across Indonesia, strengthening strategic partnerships with the Government, and developing broader business potential.' },
+        { year: '2026', title: '2.5 Million Metric Tons of LPG',  done: true,  icon: '🏆', desc: 'Cumulative production milestone of 2.5 million metric tons of LPG since the commercial phase on 1 May 2013 through 2026.' },
       ],
     },
 
@@ -537,7 +574,7 @@ export const translations = {
           links: [
             { l: 'About Us',             h: '#tentang' },
             { l: 'Vision & Mission',     h: '#tentang' },
-            { l: 'Core Values (AKHLAK)', h: '#kenapa'  },
+            { l: 'PSGAS',                  h: '#kenapa'  },
             { l: 'Achievements',         h: '#roadmap' },
             { l: 'Careers',              h: '#'        },
           ],
@@ -558,12 +595,13 @@ export const translations = {
             { l: 'LPG Products',    h: '#produk'     },
             { l: 'Our Contribution',  h: '#contribute' },
             { l: 'Awards',          h: '#pelanggan'  },
-            { l: 'GCG',             h: '#'           },
             { l: 'Contact Us',      h: '#kontak'     },
           ],
         },
       },
-      legal: ['Privacy Policy', 'Terms & Conditions', 'GCG', 'Sitemap'],
+      legal: ['Privacy Policy', 'Terms & Conditions', 'Sitemap'],
+      contactHeading: 'Contact Us',
+      websiteLabel: 'Official website',
     },
   },
 };

@@ -1,5 +1,6 @@
 import { useScrollAnimationMultiple } from '../hooks/useScrollAnimation';
 import { useLanguage } from '../context/LanguageContext';
+import IdRichText from './IdRichText';
 
 export default function Roadmap() {
   const ref = useScrollAnimationMultiple();
@@ -57,13 +58,15 @@ export default function Roadmap() {
                         </span> */}
                       </div>
                       <h3 className="font-bold text-psg-navy text-base mb-2">{m.title}</h3>
-                      <p className="text-gray-500 text-sm leading-relaxed">{m.desc}</p>
+                      <p className="text-gray-500 text-sm leading-relaxed">
+                        <IdRichText text={m.desc} />
+                      </p>
                     </div>
                   </div>
 
                   {/* Node */}
                   <div className="absolute left-0 lg:left-1/2 lg:-translate-x-1/2 flex-shrink-0 flex flex-col items-center">
-                    <div className={`min-w-[3.5rem] h-14 px-2 rounded-full border-4 flex items-center justify-center font-extrabold text-[10px] sm:text-xs shadow-md z-10 ${
+                    <div className={`min-w-[3.5rem] h-14 px-2 rounded-full border-4 flex items-center justify-center font-bold text-[10px] sm:text-xs shadow-md z-10 ${
                       m.done
                         ? 'bg-psg-blue border-white text-white shadow-psg-blue/30'
                         : 'bg-white border-gray-200 text-gray-400'
@@ -78,21 +81,6 @@ export default function Roadmap() {
               );
             })}
           </div>
-        </div>
-
-        {/* Trophy CTA */}
-        <div className="anim mt-16 bg-psg-navy/95 backdrop-blur-sm rounded-2xl p-8 lg:p-10 flex flex-col sm:flex-row items-center gap-6 shadow-section" style={{ transitionDelay: '580ms' }}>
-          <div className="w-16 h-16 bg-psg-red/20 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">🏆</div>
-          <div className="flex-1 text-center sm:text-left">
-            <h3 className="text-white font-extrabold text-xl mb-1">{t('roadmap.ctaHeading')}</h3>
-            <p className="text-blue-200 text-sm leading-relaxed">{t('roadmap.ctaSub')}</p>
-          </div>
-          <button
-            onClick={() => document.querySelector('#kontak')?.scrollIntoView({ behavior: 'smooth' })}
-            className="btn-primary flex-shrink-0"
-          >
-            {t('roadmap.ctaBtn')}
-          </button>
         </div>
 
       </div>

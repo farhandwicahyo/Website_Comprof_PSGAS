@@ -77,7 +77,7 @@ export default function News() {
                 <span className="flex items-center gap-1.5"><Clock size={12} />{featured.read} {newsT.readUnit}</span>
                 {featured.author && <span className="flex items-center gap-1.5"><User size={12} />{featured.author}</span>}
               </div>
-              <h3 className="font-extrabold text-psg-navy text-xl leading-tight mb-3 group-hover:text-psg-blue transition-colors">
+              <h3 className="font-bold text-psg-navy text-xl leading-tight mb-3 group-hover:text-psg-blue transition-colors">
                 {featured.title}
               </h3>
               <p className="text-gray-500 text-sm leading-relaxed flex-1 mb-5">{featured.excerpt}</p>

@@ -15,11 +15,18 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+        sans: [
+          '"Plus Jakarta Sans"',
+          'ui-sans-serif',
+          'system-ui',
+          '-apple-system',
+          'Segoe UI',
+          'sans-serif',
+        ],
       },
       fontSize: {
-        'display': ['3.75rem', { lineHeight: '1.1', fontWeight: '800' }],
-        'display-sm': ['2.75rem', { lineHeight: '1.15', fontWeight: '800' }],
+        'display': ['3.75rem', { lineHeight: '1.12', fontWeight: '700', letterSpacing: '-0.02em' }],
+        'display-sm': ['2.75rem', { lineHeight: '1.15', fontWeight: '700', letterSpacing: '-0.02em' }],
       },
       boxShadow: {
         'card': '0 1px 3px 0 rgba(0,0,0,.06), 0 1px 2px -1px rgba(0,0,0,.06)',

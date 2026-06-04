@@ -24,6 +24,15 @@ export default function EditAbout() {
 
   return (
     <EditorShell title="Tentang Perusahaan" icon="🏢" onSave={handleSave} onReset={handleReset}>
+      <Section title="Tampilan">
+        <Field
+          label="URL Gambar Latar"
+          value={form.heroImage || ''}
+          onChange={set('heroImage')}
+          placeholder="/Kilang_Fraksinasi_Sungai_Gerong.JPG"
+        />
+      </Section>
+
       <Section title="Profil Utama">
         <Field label="Nama Perusahaan" value={form.heading} onChange={set('heading')} />
         <TextArea label="Paragraf 1" value={form.body1} onChange={set('body1')} rows={4} />

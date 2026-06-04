@@ -1,5 +1,6 @@
 import { useScrollAnimationMultiple } from '../hooks/useScrollAnimation';
 import { useLanguage } from '../context/LanguageContext';
+import IdRichText from './IdRichText';
 
 const ACCENTS = ['bg-psg-red', 'bg-psg-blue', 'bg-[#6b7a19]', 'bg-psg-navy'];
 
@@ -29,7 +30,7 @@ function FacilityCardBig({ f, delay }) {
         <img src={f.image} alt={f.title} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-psg-navy/70 to-transparent" />
         <span className={`absolute top-4 left-4 ${f.accent} text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full`}>
-          {f.label}
+          <IdRichText text={f.label} />
         </span>
       </div>
       <div className="p-5 flex flex-col flex-1">
@@ -38,7 +39,9 @@ function FacilityCardBig({ f, delay }) {
           <LocationIcon />
           {f.location}
         </p>
-        <p className="text-gray-500 text-xs leading-relaxed flex-1 mb-4">{f.desc}</p>
+        <p className="text-gray-500 text-xs leading-relaxed flex-1 mb-4">
+          <IdRichText text={f.desc} />
+        </p>
         <div
           className={`grid gap-2 pt-3 border-t border-gray-100 ${
             f.specs.length <= 2 ? 'grid-cols-2' : 'grid-cols-3'

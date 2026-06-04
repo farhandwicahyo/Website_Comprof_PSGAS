@@ -1,12 +1,21 @@
 import { useState } from 'react';
 import { useContent } from '../../context/ContentContext';
-import { EditorShell, Section, Field, TextArea, Grid2 } from '../EditorShell';
+import { EditorShell, Section, Field, TextArea } from '../EditorShell';
 
 export default function EditContact() {
   const { content, updateSection, resetSection } = useContent();
   const [form, setForm] = useState({ ...content.contact });
 
   function set(k) { return (v) => setForm((f) => ({ ...f, [k]: v })); }
+  const offices = Array.isArray(form.offices) ? form.offices : [];
+
+  function setOffice(i, key, value) {
+    setForm((f) => {
+      const next = [...(f.offices || [])];
+      next[i] = { ...next[i], [key]: value };
+      return { ...f, offices: next };
+    });
+  }
 
   return (
     <EditorShell
@@ -15,30 +24,16 @@ export default function EditContact() {
       onSave={() => updateSection('contact', form)}
       onReset={() => { resetSection('contact'); setForm({ ...content.contact }); }}
     >
-      <Section title="Kontak Kantor Pusat">
-        <Field label="Nomor Telepon" value={form.phone1} onChange={set('phone1')} placeholder="+62-..." />
-        <Field label="Keterangan Telepon" value={form.phone1Sub} onChange={set('phone1Sub')} placeholder="cth: Kantor Pusat, Banyuasin" />
-      </Section>
+      {offices.map((office, i) => (
+        <Section key={i} title={office.label || `Kantor ${i + 1}`}>
+          <Field label="Judul" value={office.label} onChange={(v) => setOffice(i, 'label', v)} />
+          <TextArea label="Alamat (Enter = baris baru)" value={office.address} onChange={(v) => setOffice(i, 'address', v)} rows={3} />
+          <Field label="Telepon" value={office.phone} onChange={(v) => setOffice(i, 'phone', v)} />
+        </Section>
+      ))}
 
-      <Section title="Kontak Kantor Perwakilan Jakarta">
-        <Field label="Nomor Telepon" value={form.phone2} onChange={set('phone2')} placeholder="021-..." />
-        <Field label="Keterangan Telepon" value={form.phone2Sub} onChange={set('phone2Sub')} placeholder="cth: Kantor Perwakilan Jakarta" />
-      </Section>
-
-      <Section title="Website & Alamat">
+      <Section title="Website & Lainnya">
         <Field label="Website" value={form.website} onChange={set('website')} placeholder="www...." />
-        <Grid2>
-          <Field label="Alamat (baris 1)" value={form.address} onChange={set('address')} />
-          <Field label="Alamat (baris 2)" value={form.addressSub} onChange={set('addressSub')} />
-        </Grid2>
-      </Section>
-
-      <Section title="Kantor Liaison Jakarta">
-        <TextArea label="Alamat Lengkap" value={form.liaisonAddress} onChange={set('liaisonAddress')} rows={3} />
-      </Section>
-
-      <Section title="Teks Lain">
-        <Field label="Teks Strip Atas" value={form.topStrip} onChange={set('topStrip')} hint="Teks banner kecil di atas navbar" />
         <TextArea label="Copyright" value={form.copyright} onChange={set('copyright')} rows={2} />
       </Section>
     </EditorShell>

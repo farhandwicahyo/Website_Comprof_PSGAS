@@ -88,7 +88,7 @@ export default function Contribute() {
                   <p className="text-blue-200 text-[10px] font-bold uppercase tracking-[0.2em] mb-2">
                     {String(index + 1).padStart(2, '0')} / {String(n).padStart(2, '0')}
                   </p>
-                  <h3 className="text-white font-extrabold text-xl sm:text-2xl mb-2">{current.title}</h3>
+                  <h3 className="text-white font-bold text-xl sm:text-2xl mb-2">{current.title}</h3>
                   <p className="text-blue-100/90 text-sm max-w-2xl leading-relaxed">{current.caption}</p>
                 </div>
               </motion.div>

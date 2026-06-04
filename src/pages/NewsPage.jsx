@@ -67,7 +67,7 @@ export default function NewsPage() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
               <p className="text-blue-300 text-xs font-bold uppercase tracking-[0.2em] mb-2">Ruang Redaksi</p>
-              <h1 className="text-3xl sm:text-4xl font-black leading-tight">
+              <h1 className="text-3xl sm:text-4xl font-bold leading-tight">
                 Berita &amp; Artikel
               </h1>
               <p className="text-blue-200 mt-2 text-sm">

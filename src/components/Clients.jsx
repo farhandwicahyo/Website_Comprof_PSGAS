@@ -4,38 +4,6 @@ import { useScrollAnimationMultiple } from '../hooks/useScrollAnimation';
 import { useLanguage } from '../context/LanguageContext';
 import { useContent } from '../context/ContentContext';
 
-/* ─── Partners ─── */
-function PartnerItem({ p }) {
-  return (
-    <div title={p.name} className="flex flex-col items-center justify-center flex-shrink-0 w-[9rem] sm:w-[10.5rem]">
-      <div className="h-14 sm:h-16 w-full flex items-center justify-center px-2">
-        <img src={p.logo} alt={p.name}
-          className="max-h-full max-w-full w-auto object-contain"
-          loading="lazy" decoding="async" draggable="false" />
-      </div>
-      <span className="text-[9px] text-gray-400 text-center leading-tight px-1 mt-2">{p.name}</span>
-    </div>
-  );
-}
-
-function PartnerMarquee({ partners }) {
-  const { t } = useLanguage();
-  const track = [...partners, ...partners];
-  return (
-    <div className="partner-marquee mb-10 lg:mb-12">
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 sm:w-24 bg-gradient-to-r from-white via-white/80 to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 sm:w-24 bg-gradient-to-l from-white via-white/80 to-transparent" />
-      <div className="partner-marquee__track" aria-label={t('clients.partnerAriaLabel')} role="list">
-        {track.map((p, i) => (
-          <div key={`${p.name}-${i}`} className="px-4 sm:px-6" role="listitem" aria-hidden={i >= partners.length}>
-            <PartnerItem p={p} />
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 /* ─── Awards carousel ─── */
 const OFFSETS   = [-3, -2, -1, 0, 1, 2, 3];
 const CARD_W    = 420;
@@ -142,7 +110,7 @@ function AwardCarousel({ awards }) {
                   <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-350 flex flex-col justify-end p-5"
                     style={{ background: 'rgba(0,48,96,0.88)' }}>
                     <p className="text-blue-300 text-[9px] font-bold uppercase tracking-widest mb-2">{a.org}</p>
-                    <h4 className="text-white font-extrabold text-base leading-snug mb-3">{a.title}</h4>
+                    <h4 className="text-white font-bold text-base leading-snug mb-3">{a.title}</h4>
                     <div className="w-8 h-0.5 bg-psg-red rounded-full mb-3" />
                     <p className="text-blue-100/90 text-xs leading-relaxed">{a.desc}</p>
                   </div>
@@ -177,25 +145,10 @@ export default function Clients() {
   const clientsT = t('clients');
 
   // CMS data — falls back to empty array if not set
-  const partners = content.partners ?? [];
-  const awards   = content.awards   ?? [];
+  const awards = content.awards ?? [];
 
   return (
     <section id="pelanggan" className="py-12 lg:py-16 section-white overflow-x-clip" ref={ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-10">
-          <div className="anim"><span className="section-label">{clientsT.partnersEyebrow}</span></div>
-          <h2 className="anim section-heading mb-4" style={{ transitionDelay: '80ms' }}>{clientsT.partnersHeading}</h2>
-          <p className="anim section-sub mx-auto text-center" style={{ transitionDelay: '140ms' }}>
-            {clientsT.partnersSub}
-          </p>
-        </div>
-      </div>
-
-      {/* Partner marquee — full-width */}
-      {partners.length > 0 && <PartnerMarquee partners={partners} />}
-
       {/* Award carousel — full-width */}
       {awards.length > 0 && (
         <div className="anim w-full" style={{ transitionDelay: '80ms' }}>

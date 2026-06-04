@@ -99,7 +99,7 @@ export default function Hero() {
               </span>
             </div>
 
-            <h1 className="ht text-[2.5rem] sm:text-[3.25rem] lg:text-[4rem] font-black text-white leading-[1.08] tracking-tight mb-6">
+            <h1 className="ht text-[2.5rem] sm:text-[3.25rem] lg:text-[4rem] font-bold text-white leading-[1.12] tracking-tight mb-6">
               {heroT.headline1}
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-psg-green via-[#d4ed3a] to-[#ADC32B]">
@@ -144,7 +144,7 @@ export default function Hero() {
                 key={s.label}
                 className="py-5 px-3 sm:px-4 text-center border-r border-gray-100 last:border-0 hover:bg-psg-light transition-colors"
               >
-                <div className="text-lg sm:text-xl lg:text-2xl font-extrabold text-psg-navy tabular-nums">
+                <div className="text-lg sm:text-xl lg:text-2xl font-bold text-psg-navy tabular-nums">
                   <Ticker to={s.value} suffix={s.suffix} />
                 </div>
                 <div className="text-[10px] sm:text-[11px] text-gray-400 font-medium mt-0.5 uppercase tracking-wide">

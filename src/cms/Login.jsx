@@ -38,7 +38,7 @@ export default function Login() {
           <div className="p-8 sm:p-10">
             {/* Logo + title */}
             <div className="flex flex-col items-center mb-8">
-              <img src="/logo.png" alt="PT Perta-Samtan Gas" className="h-14 w-auto mb-4 object-contain" />
+              <img src="/logo-web.png" alt="PT Perta-Samtan Gas" className="h-14 w-auto mb-4 object-contain" />
               <h1 className="text-2xl font-bold text-[#003060]">Admin CMS</h1>
               <p className="text-sm text-gray-500 mt-1">PT Perta-Samtan Gas — Content Management</p>
             </div>

@@ -1,5 +1,6 @@
 import { useScrollAnimationMultiple } from '../hooks/useScrollAnimation';
 import { useLanguage } from '../context/LanguageContext';
+import IdRichText from './IdRichText';
 
 const EXCELLENCE_ICONS = ['📈', '🌏', '🔬', '🤝'];
 
@@ -38,7 +39,7 @@ export default function Products() {
           <div className="anim"><span className="section-label">{prodT.eyebrow}</span></div>
           <h2 className="anim section-heading mb-4" style={{ transitionDelay: '80ms' }}>{prodT.heading}</h2>
           <p className="anim section-sub mx-auto text-center" style={{ transitionDelay: '140ms' }}>
-            {prodT.sub}
+            <IdRichText text={prodT.sub} />
           </p>
         </div>
 
@@ -61,9 +62,15 @@ export default function Products() {
                     {p.stat}
                   </span>
                 </div>
-                <h3 className={`font-extrabold text-xl text-${p.color} mb-0.5`}>{p.title}</h3>
-                <p className="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-4">{p.sub}</p>
-                <p className="text-sm text-gray-500 leading-relaxed">{p.desc}</p>
+                <h3 className={`font-bold text-xl text-${p.color} mb-0.5`}>
+                  <IdRichText text={p.title} />
+                </h3>
+                <p className="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-4">
+                  <IdRichText text={p.sub} />
+                </p>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  <IdRichText text={p.desc} />
+                </p>
               </div>
             </div>
           ))}

@@ -4,7 +4,7 @@ import { defaultContent } from '../data/defaultContent';
 const STORAGE_KEY = 'psg_content_v1';
 
 /** Naikkan angka ini setiap defaultContent.js diubah agar cache browser ikut refresh. */
-export const CONTENT_VERSION = 13;
+export const CONTENT_VERSION = 14;
 
 /**
  * Deep merge: values from `stored` override `defaults`,
@@ -83,7 +83,7 @@ function sanitizeMilestones(milestones) {
   const stale =
     milestones.length !== defaults.length ||
     !has2010 ||
-    milestones.some((m) => /Proper Hijau|Patra Nirbaya/i.test(String(m?.title ?? '')));
+    milestones.some((m) => /Proper Hijau|Patra Nirbaya|Diversifikasi/i.test(String(m?.title ?? '')));
   if (stale) return defaults;
   return milestones.map((m) => {
     let year = String(m.year ?? '');
@@ -117,6 +117,21 @@ function withoutEsdmPartner(partners) {
 
 function sanitizePartners(partners) {
   return withoutEsdmPartner(partners);
+}
+
+function sanitizeAboutObjectives(about) {
+  if (!about || !Array.isArray(about.objectives)) return about;
+  const objectives = about.objectives.map((o) =>
+    String(o).replace(/\s*untuk memenuhi program Public Service Obligation \(PSO\)/i, ' untuk memenuhi kebutuhan energi domestik nasional'),
+  );
+  const changed = objectives.some((o, i) => o !== about.objectives[i]);
+  return changed ? { ...about, objectives } : about;
+}
+
+function sanitizeContact(contact) {
+  if (!contact) return defaultContent.contact;
+  if (Array.isArray(contact.offices) && contact.offices.length >= 3) return contact;
+  return defaultContent.contact;
 }
 
 function sanitizeAwards(awards) {
@@ -198,6 +213,10 @@ function sanitizeContent(data) {
   if (awardsClean !== next.awards) next = { ...next, awards: awardsClean };
   const partnersClean = sanitizePartners(next.partners);
   if (partnersClean !== next.partners) next = { ...next, partners: partnersClean };
+  const aboutClean = sanitizeAboutObjectives(next.about);
+  if (aboutClean !== next.about) next = { ...next, about: aboutClean };
+  const contactClean = sanitizeContact(next.contact);
+  if (contactClean !== next.contact) next = { ...next, contact: contactClean };
   const withNav = withOurContributeNav(next);
   if (withNav !== next) next = withNav;
   const withCsr = withCsrContributePhotos(next);
@@ -212,6 +231,7 @@ function migrateFromDefaults(stored) {
     milestones: defaultContent.milestones,
     awards: defaultContent.awards,
     partners: defaultContent.partners,
+    contact: defaultContent.contact,
     news: Array.isArray(stored?.news) && stored.news.length ? stored.news : defaultContent.news,
   });
 }

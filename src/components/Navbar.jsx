@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 import { useContent } from '../context/ContentContext';
 import { useLanguage } from '../context/LanguageContext';
+import BrandLogo from './BrandLogo';
 
 function LangSwitch({ onHero }) {
   const { lang, setLang } = useLanguage();
@@ -22,7 +23,7 @@ function LangSwitch({ onHero }) {
         type="button"
         onClick={() => setLang('id')}
         aria-pressed={isId}
-        className={`flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-extrabold tracking-wide transition-all duration-200 ${
+        className={`flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide transition-all duration-200 ${
           isId
             ? onHero
               ? 'bg-white text-psg-navy shadow-sm'
@@ -39,7 +40,7 @@ function LangSwitch({ onHero }) {
         type="button"
         onClick={() => setLang('en')}
         aria-pressed={!isId}
-        className={`flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-extrabold tracking-wide transition-all duration-200 ${
+        className={`flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide transition-all duration-200 ${
           !isId
             ? onHero
               ? 'bg-white text-psg-navy shadow-sm'
@@ -139,20 +140,17 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
+          <div className="flex items-center justify-between h-14 sm:h-16">
             <button
               type="button"
               onClick={() => goto('#beranda')}
-              className="flex items-center flex-shrink-0 group"
+              className="flex items-center shrink min-w-0 group"
               aria-label={navT.brandName}
-              style={{ height: "72px" }}
             >
-              <img
-                src="/logo.png"
+              <BrandLogo
                 alt={navT.brandName}
-                className="block"
-                style={{height: "64px", width: "auto", maxWidth: "260px", objectFit: "contain", display: "block" }}
+                fullSrc={nav?.logoUrl || '/logo.png'}
+                markSrc={nav?.logoMarkUrl || '/logo-web.png'}
               />
             </button>
 

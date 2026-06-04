@@ -1,6 +1,7 @@
 import { Phone, MapPin, Globe, ArrowRight } from 'lucide-react';
 import { useContent } from '../context/ContentContext';
 import { useLanguage } from '../context/LanguageContext';
+import BrandLogo from './BrandLogo';
 
 const SocialIcons = {
   Facebook: () => <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>,
@@ -10,64 +11,87 @@ const SocialIcons = {
   YouTube: () => <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>,
 };
 
+function OfficeLines({ address, phone }) {
+  return (
+    <>
+      {address.split('\n').map((line) => (
+        <div key={line} className="leading-snug">{line}</div>
+      ))}
+      <div className="mt-1 font-medium text-white">{phone}</div>
+    </>
+  );
+}
+
 export default function Footer() {
   const { content } = useContent();
   const { t } = useLanguage();
-  const ct = content.contact;
+  const ct = content.contact ?? {};
+  const nav = content.navbar ?? {};
   const footerT = t('footer');
   const LINKS = footerT.sections;
+  const offices = Array.isArray(ct.offices) && ct.offices.length
+    ? ct.offices
+    : [];
   const goto = (e, h) => { if (h !== '#') { e.preventDefault(); document.querySelector(h)?.scrollIntoView({ behavior: 'smooth' }); } };
 
   return (
     <footer id="kontak" className="bg-psg-navy text-white">
-      {/* Top accent */}
       <div className="flex h-1">
         <div className="flex-1 bg-psg-red" />
         <div className="flex-[2.5] bg-psg-blue" />
         <div className="flex-1 bg-psg-green" />
       </div>
 
-      {/* Main */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
 
-          {/* Brand column */}
           <div className="lg:col-span-2">
-            {/* Logo */}
-            <img
-              src="/logo.png"
-              alt="PT Perta-Samtan Gas"
-              className="h-14 sm:h-16 w-auto max-w-[min(280px,90vw)] object-contain object-left mb-6"
-              loading="lazy"
-              decoding="async"
-            />
+            <div className="mb-6 brightness-0 invert">
+              <BrandLogo
+                alt="PT Perta-Samtan Gas"
+                fullSrc={nav.logoUrl || '/logo.png'}
+                markSrc={nav.logoMarkUrl || '/logo-web.png'}
+                variant="footer"
+              />
+            </div>
 
             <p className="text-blue-200 text-sm leading-relaxed mb-8 max-w-xs">
               {footerT.desc}
             </p>
 
-            {/* Contact */}
-            <div className="space-y-3 mb-7">
-              {[
-                { icon: <Phone size={13} />, text: ct.phone1, sub: ct.phone1Sub, href: 'tel:+6271157407001' },
-                { icon: <Phone size={13} />, text: ct.phone2, sub: ct.phone2Sub, href: 'tel:+6202157958218' },
-                { icon: <Globe size={13} />, text: ct.website, sub: footerT.websiteSub, href: `https://${ct.website}` },
-                { icon: <MapPin size={13} />, text: ct.address, sub: ct.addressSub, href: null },
-              ].map((c, i) => (
-                <div key={i} className={`flex items-start gap-3 text-blue-200 text-sm ${c.href ? 'hover:text-white transition-colors cursor-pointer' : ''}`}
-                  onClick={c.href ? () => window.open(c.href, '_blank') : undefined}>
+            <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-blue-300 mb-4">
+              {footerT.contactHeading || 'Hubungi Kami'}
+            </h4>
+            <div className="space-y-5 mb-7">
+              {offices.map((office) => (
+                <div key={office.label} className="flex items-start gap-3 text-blue-200 text-sm">
                   <div className="w-7 h-7 rounded-lg bg-white/8 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    {c.icon}
+                    <MapPin size={13} />
                   </div>
-                  <div>
-                    <div className="font-medium">{c.text}</div>
-                    <div className="text-[11px] text-blue-400 mt-0.5">{c.sub}</div>
+                  <div className="min-w-0">
+                    <div className="font-semibold text-white mb-1">{office.label}</div>
+                    <OfficeLines address={office.address} phone={office.phone} />
                   </div>
                 </div>
               ))}
+              {ct.website && (
+                <a
+                  href={`https://${ct.website}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-start gap-3 text-blue-200 text-sm hover:text-white transition-colors"
+                >
+                  <div className="w-7 h-7 rounded-lg bg-white/8 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Globe size={13} />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-white">{footerT.websiteLabel || footerT.websiteSub}</div>
+                    <div className="mt-0.5">{ct.website}</div>
+                  </div>
+                </a>
+              )}
             </div>
 
-            {/* Socials */}
             <div className="flex gap-2">
               {[
                 { key: 'socialFacebook', label: 'Facebook', Icon: SocialIcons.Facebook },
@@ -87,7 +111,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Link columns */}
           {Object.entries(LINKS).map(([key, col]) => (
             <div key={key}>
               <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-blue-300 mb-5">{col.label}</h4>
@@ -108,19 +131,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Liaison office strip */}
-      {ct.showLiaisonStrip !== false && (
-        <div className="border-t border-white/10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 text-[11px] text-blue-400">
-              <span className="font-bold text-blue-300 flex-shrink-0">{footerT.liaisonLabel}:</span>
-              <span>{ct.liaisonAddress}</span>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Bottom bar */}
       <div className="border-t border-white/8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <span className="text-blue-400 text-xs">{ct.copyright}</span>
