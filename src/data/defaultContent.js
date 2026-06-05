@@ -9,7 +9,6 @@ export const defaultContent = {
   /* ── Navbar ── */
   navbar: {
     logoUrl: '/logo.png',
-    logoMarkUrl: '/logo-web.png',
     brandName: 'Perta-Samtan',
     brandSub: 'GAS',
     topStrip: 'PT Perta-Samtan Gas — Harmony World Class',

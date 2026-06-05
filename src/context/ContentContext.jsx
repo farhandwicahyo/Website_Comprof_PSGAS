@@ -4,7 +4,7 @@ import { defaultContent } from '../data/defaultContent';
 const STORAGE_KEY = 'psg_content_v1';
 
 /** Naikkan angka ini setiap defaultContent.js diubah agar cache browser ikut refresh. */
-export const CONTENT_VERSION = 14;
+export const CONTENT_VERSION = 15;
 
 /**
  * Deep merge: values from `stored` override `defaults`,
@@ -175,6 +175,21 @@ function withCsrContributePhotos(data) {
   };
 }
 
+function sanitizeNavbarLogo(data) {
+  const nav = data.navbar;
+  if (!nav) return data;
+  const fixUrl = nav.logoUrl === '/logo-web.png';
+  if (!fixUrl && nav.logoMarkUrl == null) return data;
+  const { logoMarkUrl: _removed, ...rest } = nav;
+  return {
+    ...data,
+    navbar: {
+      ...rest,
+      logoUrl: fixUrl ? '/logo.png' : (nav.logoUrl || '/logo.png'),
+    },
+  };
+}
+
 function withOurContributeNav(data) {
   const items = data.navbar?.menuItems;
   if (!Array.isArray(items)) return data;
@@ -217,6 +232,8 @@ function sanitizeContent(data) {
   if (aboutClean !== next.about) next = { ...next, about: aboutClean };
   const contactClean = sanitizeContact(next.contact);
   if (contactClean !== next.contact) next = { ...next, contact: contactClean };
+  const navLogo = sanitizeNavbarLogo(next);
+  if (navLogo !== next) next = navLogo;
   const withNav = withOurContributeNav(next);
   if (withNav !== next) next = withNav;
   const withCsr = withCsrContributePhotos(next);

@@ -147,11 +147,7 @@ export default function Navbar() {
               className="flex items-center shrink min-w-0 group"
               aria-label={navT.brandName}
             >
-              <BrandLogo
-                alt={navT.brandName}
-                fullSrc={nav?.logoUrl || '/logo.png'}
-                markSrc={nav?.logoMarkUrl || '/logo-web.png'}
-              />
+              <BrandLogo alt={navT.brandName} src={nav?.logoUrl || '/logo.png'} />
             </button>
 
             {/* Desktop nav */}

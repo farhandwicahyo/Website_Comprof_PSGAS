@@ -49,8 +49,7 @@ export default function Footer() {
             <div className="mb-6 brightness-0 invert">
               <BrandLogo
                 alt="PT Perta-Samtan Gas"
-                fullSrc={nav.logoUrl || '/logo.png'}
-                markSrc={nav.logoMarkUrl || '/logo-web.png'}
+                src={nav.logoUrl || '/logo.png'}
                 variant="footer"
               />
             </div>
