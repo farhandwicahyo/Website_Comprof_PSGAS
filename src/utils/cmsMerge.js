@@ -79,6 +79,37 @@ export function buildIdLocale(content) {
   };
 }
 
+/** Locale EN: struktur & data fasilitas sama dengan ID, teks dalam bahasa Inggris. */
+export function buildEnLocale(content) {
+  const base = translations.en;
+  const idBase = translations.id;
+  const idMapped = mapFacilities(content?.facilities, idBase.facilities.items);
+  const enItems = translations.en.facilities.items;
+
+  return {
+    ...base,
+    facilities: {
+      ...base.facilities,
+      items: idMapped.map((row, i) => {
+        const en = enItems[i] ?? {};
+        return {
+          ...row,
+          title: en.title ?? row.title,
+          label: en.label ?? row.label,
+          location: en.location ?? row.location,
+          desc: en.desc ?? row.desc,
+          spec1k: en.spec1k ?? row.spec1k,
+          spec1v: row.spec1v ?? en.spec1v,
+          spec2k: en.spec2k ?? row.spec2k,
+          spec2v: row.spec2v ?? en.spec2v,
+          spec3k: en.spec3k ?? row.spec3k,
+          spec3v: row.spec3v ?? en.spec3v,
+        };
+      }),
+    },
+  };
+}
+
 function mapProcessSteps(cmsSteps, fallbackSteps) {
   if (!Array.isArray(cmsSteps) || !cmsSteps.length) return fallbackSteps;
   return cmsSteps.map((s, i) => {
@@ -110,8 +141,9 @@ function operationalFacilitiesOnly(list) {
 
 function mapFacilities(cmsList, fallbackItems) {
   const plants = operationalFacilitiesOnly(cmsList);
-  const source = plants.length ? plants : fallbackItems;
-  if (!source.length) return fallbackItems;
+  const fallbackPlants = operationalFacilitiesOnly(fallbackItems);
+  const source = plants.length ? plants : fallbackPlants;
+  if (!source.length) return fallbackPlants.length ? fallbackPlants : fallbackItems.slice(0, 2);
   return source.map((f, i) => {
     const fb = fallbackItems[i] ?? {};
     return {

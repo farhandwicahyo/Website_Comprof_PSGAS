@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useCallback, useMemo } from 'react';
 import { translations } from '../i18n/translations';
 import { useContent } from './ContentContext';
-import { buildIdLocale } from '../utils/cmsMerge';
+import { buildIdLocale, buildEnLocale } from '../utils/cmsMerge';
 
 const STORAGE_KEY = 'psg_lang';
 
@@ -21,7 +21,7 @@ export function LanguageProvider({ children }) {
   const [lang, setLangState] = useState(loadLang);
 
   const locale = useMemo(
-    () => (lang === 'id' ? buildIdLocale(content) : translations.en),
+    () => (lang === 'id' ? buildIdLocale(content) : buildEnLocale(content)),
     [lang, content],
   );
 
